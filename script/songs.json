@@ -1,0 +1,118 @@
+[
+	{
+		"id": "project-03",
+		"title": "Work No. 9",
+		"date": "2026/05/14",
+		"project_comment": "ピアノを弾いていたときに、Ⅰ→Ⅶm7→Ⅳ→Ⅳmが気に入り、そこからできた曲。\nこの曲は歌詞からメロを作ったから、メロにもそれなりの意味がある。。。はず？\n伴奏は、前奏、Aメロ1、Aメロ2、Bメロ、サビ、間奏、後奏でそれぞれ別だが、1番と2番は使いまわしだ。",
+		"versions": [
+			{
+				"ver": "v9.0.0 [DEMO1]",
+				"ver_comment": "初期バージョンでは、コード進行をすべて使いまわしていた。まぁ合わない部分もあったが、すべて使いまわしで作ってしまったがゆえに平坦なメロになったのかもね。",
+				"types": [
+					{ "name": "Original Mix", "time": "01:45", "file": "source/sounds/work_no_9/9.0.0_[DEMO].m4a" },
+					{ "name": "Lead E.Pno", "time": "01:45", "file": "source/sounds/work_no_9/9.0.0_Lead E.Piano_[DEMO].m4a" }
+				]
+			},
+			{
+				"ver": "v9.1.0 [DEMO2]",
+				"ver_comment": "DEMO1のフルバージョン。2番では少しメロが1番と違ったりする。\nコード進行は、相変わらずの使いまわし。",
+				"types": [
+					{ "name": "Original Mix", "time": "03:10", "file": "source/sounds/work_no_9/9.1.0_[DEMO2].m4a" },
+					{ "name": "Lead E.Pno", "time": "03:10", "file": "source/sounds/work_no_9/9.1.0_Lead E.Piano_[DEMO2].m4a" }
+				]
+			},
+			{
+				"ver": "v9.4.11",
+				"ver_comment": "このバージョンで、ピアノの伴奏が9割くらい完成し、コード進行にも手が加えられた。ただ、ミキシングを知らないが故、すごくモワっとしている。正直聞くに耐えない。",
+				"types": [
+					{ "name": "Original Mix", "time": "03:11", "file": "source/sounds/work_no_9/9.4.11.m4a" },
+					{ "name": "Lead E.Pno", "time": "03:11", "file": "source/sounds/work_no_9/9.4.11_Lead E.Piano.m4a" },
+					{ "name": "Backing Track", "time": "03:11", "file": "source/sounds/work_no_9/9.4.11_Backing Track.m4a" }
+				]
+			},
+            {
+                "ver": "v9.5.0",
+                "ver_comment": "これまでは、いきなりアウトロに行く不自然さがあったがここでようやくアーメン終止？を入れてアウトロへ繋げた。",
+                "types": [
+                    { "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.0.m4a" },
+                    { "name": "Lead E.Pno", "time": "03:19", "file": "source/sounds/work_no_9/9.5.0_Lead E.Piano.m4a" },
+                    { "name": "Backing Track", "time": "03:19", "file": "source/sounds/work_no_9/9.5.0_Backing Track.m4a" }
+                ]
+            },
+			{
+				"ver": "v9.5.7",
+				"ver_comment": "ようやくまともにミキシングをした。これまでのバージョンと比べると、尖っていて耳がキンキンするピアノがマイルドになった。\nやっぱり、アーメン終止は気に食わないのでsus4とadd9でなんとか誤魔化した。これでいいのかな？",
+				"types": [
+					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_final_5.m4a" },
+					{ "name": "Lead E.Pno", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_Lead E.Piano_final_5.m4a" },
+					{ "name": "Backing Track", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_Backing Track_final_5 1.m4a" }
+				]
+			},
+			{
+				"ver": "v9.5.8",
+				"ver_comment": "一応は最終バージョン。\n9.5.7との違いは、ボーカルの声質と、一部のフレーズの歌い方を変更した。\nようやくミキシングの必要性が分かった気がする。今ままでCompressorすら知らなかったし。。。",
+				"types": [
+					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.8.m4a" }
+				]
+			}
+		]
+	},
+	{
+		"id": "project-02",
+		"title": "Work No. 2",
+		"date": "2026/06/06",
+		"project_comment": "ギター、ベース、ピアノ、シンセをとりあえずぶち込んで作ってみた。\nコード進行から先に制作したので、メロに特に意味はない。",
+		"versions": [
+			{
+				"ver": "v2.0.0 [DEMO]",
+				"ver_comment": "16分音符を多用した勢いで誤魔化す曲。\nテンポを下げて聞いてみるとあんまり良くないメロディ。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:31", "file": "source/sounds/work_no_2/2.0.0_[DEMO].m4a" }
+				]
+			},
+			{
+				"ver": "v2.1.0",
+				"ver_comment": "16分音符で誤魔化すのはやっぱりダメだと思う。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:31", "file": "source/sounds/work_no_2/2.1.0.m4a" }
+				]
+			},
+			{
+				"ver": "v2.6.0",
+				"ver_comment": "楽器が少なくて悲しいからとりあえず、ギターとバッキングピアノ、そしてシンセを入れてみた。\nギターのボイシングは全く知らないのでピアノ方式で適当に入れたが、違和感が拭いきれない。まあ気にしないけど。もちろんバッキングピアノもテキトー。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:29", "file": "source/sounds/work_no_2/2.6.0.m4a" }
+				]
+			},
+			{
+				"ver": "v2.10.1",
+				"ver_comment": "冒頭のドラムが気持ち悪かったので抹消した。\n割とテキトーに作った曲だけど以外にお気に入り。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:25", "file": "source/sounds/work_no_2/2.10.1_final_2.m4a" }
+				]
+			}
+		]
+	},
+	{
+		"id": "project-01",
+		"title": "Work No. 1",
+		"date": "2026/06/07",
+		"project_comment": "古の初作曲。\n既存のコード進行を使いたくないという逆張り精神で作った結果、気持ち悪すぎる曲が出来てしまった。\n冒頭の謎のドラムやグリッサンドが場違い感を醸し出しおり、これは逆張りの産物と言わざるを得ない。",
+		"versions": [
+			{
+				"ver": "v1.0.0 [DEMO]",
+				"ver_comment": "初期バージョン。\nキモい進行を使うとキモいメロになることが分かった。\nハーモニカを入れたらいいかもって思ったが逆効果だった。今になって聴くとすごく恥ずかしくなる。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:32", "file": "source/sounds/work_no_1/1.0.0_[DEMO].m4a" }
+				]
+			},
+			{
+				"ver": "v1.2.0",
+				"ver_comment": "最終バージョン。（というよりこれ以上この曲は発展させたくない）\nハーモニカが終わってるほどダサかったので消したら、ハーモニカ以外がダサい曲になった。もうダメだ。。。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:32", "file": "source/sounds/work_no_1/1.2.0_final.m4a" }
+				]
+			}
+		]
+	}
+]

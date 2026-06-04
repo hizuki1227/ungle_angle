@@ -1,0 +1,99 @@
+/* フォントのインポート */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+/* （前回の共通スタイルは維持） */
+body {
+    background-color: #000000;
+    color: #00ff00;
+    font-family: "MS Gothic", "Courier New", monospace;
+    margin: 20px;
+}
+header { text-align: center; border-bottom: 3px double #00ff00; padding-bottom: 10px; margin-bottom: 20px; }
+header > h1 { font-family: "Pixelify Sans", "MS Gothic", "Courier New", monospace; font-size: 2.5rem; }
+.top-message { color: #ff00ff; font-size: 1rem; }
+main { max-width: 600px; margin: 0 auto; }
+.box { border: 2px solid #00ff00; padding: 15px; margin-bottom: 20px; background-color: #111111; }
+.box h2 { margin-top: 0; background-color: #00ff00; color: #000000; display: inline-block; padding: 2px 10px; font-size: 1.1rem; }
+
+/* --- ここから追加・最適化分 --- */
+/* --- コメントエリアのレイアウトと色分けの最適化 --- */
+
+/* プロジェクト全体のコメント（親） */
+.project-comment-box {
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 2px solid #ffff00; /* 左の線を黄色に */
+}
+.project-comment-box .comment-label {
+    font-size: 0.75rem;
+    color: #ffaa00; /* ラベルをオレンジっぽくして目立たせる */
+    margin: 0;
+}
+.project-comment-box .comment-text {
+    font-size: 0.9rem; /* 少しだけ文字を大きく */
+    margin: 4px 0 0 0;
+    color: #ffff00; /* 本文を鮮やかな黄色に */
+    line-height: 1.4;
+}
+
+/* バージョンごとのコメント（子） */
+.ver-comment-box {
+    margin: 8px 0 12px 15px; /* 左側に少しインデント（空白）を入れて階層化 */
+    padding-left: 10px;
+    border-left: 2px dashed #aaaaaa; /* 左の線をグレーの点線に */
+}
+.ver-comment-box .comment-label {
+    font-size: 0.7rem; /* ラベルを小さく */
+    color: #777777; /* 暗めのグレー */
+    margin: 0;
+}
+.ver-comment-box .comment-text {
+    font-size: 0.8rem; /* ★指示通りフォントサイズを小さく */
+    margin: 2px 0 0 0;
+    color: #cccccc; /* ★文字色を控えめなライトグレーにして視認性を調整 */
+    line-height: 1.4;
+}
+.comment-text {
+    white-space: pre-wrap;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+
+.song-item {
+    border-bottom: 1px dashed #00ff00;
+    padding: 15px 0;
+}
+.song-item:last-child {
+    border-bottom: none;
+}
+.song-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.song-date {
+    font-size: 0.8rem;
+    color: #888888;
+}
+.song-meta {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+/* プルダウンもレトロ風に */
+.ver-select, .type-select {
+    background: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    font-family: inherit;
+    padding: 2px;
+    margin-right: 10px;
+}
+.song-audio {
+    width: 100%;
+    margin-top: 5px;
+}
+footer { text-align: center; margin-top: 30px; }
+button { background-color: #000; color: #00ff00; border: 2px outset #00ff00; padding: 5px 15px; cursor: pointer; }
+button:active { border: 2px inset #00ff00; }
