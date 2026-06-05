@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			// プロジェクトコメントの判定
 			const projectComment = song.project_comment && song.project_comment.trim() !== "" 
-				? song.project_comment : "コメントなし";
+				? song.project_comment : "No comment.";
 
 			// ① バージョン選択プルダウンのHTML生成
 			let verOptionsHTML = '';
@@ -67,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
 						<div class="progress-bar"></div>
 					</div>
 
+					<div class="time-counter">
+						<span class="current-time-val">00:00</span> / <span class="duration-time-val">00:00</span>
+					</div>
+
 					<div class="waveform-visualizer">
 						<div class="bar"></div>
 						<div class="bar"></div>
@@ -92,11 +96,23 @@ document.addEventListener('DOMContentLoaded', () => {
 			const progressContainerEl = songItem.querySelector('.progress-container');
 			const progressBarEl = songItem.querySelector('.progress-bar');
 			const visualizerEl = songItem.querySelector('.waveform-visualizer');
+			
+			// ★時間表示要素のキャッシュ
+			const currentTimeValEl = songItem.querySelector('.current-time-val');
+			const durationTimeValEl = songItem.querySelector('.duration-time-val');
+
+			// 秒数を「00:00」の形式に変換するヘルパー関数
+			function formatTime(seconds) {
+				if (isNaN(seconds)) return "00:00";
+				const mins = Math.floor(seconds / 60);
+				const secs = Math.floor(seconds % 60);
+				return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+			}
 
 			// ② タイプ（インスト等）の選択肢を動的に書き換える関数
 			function updateTypeMenu(selectedVer) {
 				const verComment = selectedVer.ver_comment && selectedVer.ver_comment.trim() !== "" 
-					? selectedVer.ver_comment : "コメントなし";
+					? selectedVer.ver_comment : "No comment.";
 				verCommentValEl.textContent = verComment;
 
 				let typeOptionsHTML = '';
@@ -105,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				});
 				typeSelectEl.innerHTML = typeOptionsHTML;
 
-				// タイプが1つだけなら、セレクトボックスを選択不可（disabled）にして常に表示
 				if (selectedVer.types.length <= 1) {
 					typeSelectEl.disabled = true;
 					typeSelectEl.style.opacity = "0.6";
@@ -119,10 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
 				timeValEl.textContent = defaultType.time;
 				audioEl.src = defaultType.file;
 
-				// プルダウン初期化・変更時はプレイヤーの状態も綺麗にリセット
+				// プルダウン初期化・変更時はプレイヤーの状態とカウンターもリセット
 				audioEl.pause();
 				audioEl.currentTime = 0;
 				progressBarEl.style.width = '0%';
+				currentTimeValEl.textContent = "00:00";
+				durationTimeValEl.textContent = defaultType.time; // JSONのTime値を初期表示に使う
 				playBtnEl.textContent = '▶ PLAY';
 				playBtnEl.classList.remove('playing');
 				visualizerEl.classList.remove('playing');
@@ -132,20 +149,25 @@ document.addEventListener('DOMContentLoaded', () => {
 			// 変数宣言がすべて終わった直後に初期表示を実行
 			updateTypeMenu(defaultVer);
 
+			// 音声ファイルのメタデータが読み込まれたら正しい総時間をセット（念のための補完）
+			audioEl.addEventListener('loadedmetadata', () => {
+				durationTimeValEl.textContent = formatTime(audioEl.duration);
+			});
+
 			// ③ 再生・一時停止の挙動をコントロールするイベント
 			playBtnEl.addEventListener('click', () => {
 				if (audioEl.paused) {
 					audioEl.play();
 					playBtnEl.textContent = '⏸ PAUSE';
 					playBtnEl.classList.add('playing');
-					visualizerEl.classList.add('playing'); // 波形アニメーション開始
+					visualizerEl.classList.add('playing');
 					statusEl.textContent = 'PLAYING...';
 					statusEl.classList.add('playing');
 				} else {
 					audioEl.pause();
 					playBtnEl.textContent = '▶ PLAY';
 					playBtnEl.classList.remove('playing');
-					visualizerEl.classList.remove('playing'); // 波形アニメーション一時停止
+					visualizerEl.classList.remove('playing');
 					statusEl.textContent = 'PAUSED';
 					statusEl.classList.remove('playing');
 				}
@@ -156,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				audioEl.pause();
 				audioEl.currentTime = 0;
 				progressBarEl.style.width = '0%';
+				currentTimeValEl.textContent = "00:00"; // カウンターを戻す
 				playBtnEl.textContent = '▶ PLAY';
 				playBtnEl.classList.remove('playing');
 				visualizerEl.classList.remove('playing');
@@ -163,12 +186,14 @@ document.addEventListener('DOMContentLoaded', () => {
 				statusEl.classList.remove('playing');
 			});
 
-			// ⑤ 再生位置の進捗に合わせてプログレスバーをリアルタイムに伸ばすイベント
+			// ⑤ 再生位置の進捗に合わせてプログレスバーを伸ばし、時間を更新するイベント
 			audioEl.addEventListener('timeupdate', () => {
 				if (audioEl.duration) {
 					const progressPercent = (audioEl.currentTime / audioEl.duration) * 100;
 					progressBarEl.style.width = `${progressPercent}%`;
 				}
+				// 現在の再生時間をリアルタイムで書き換え
+				currentTimeValEl.textContent = formatTime(audioEl.currentTime);
 			});
 
 			// ⑥ プログレスバーのクリック位置にジャンプ（シーク）するイベント
@@ -182,9 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			});
 
-			// ⑦ 曲が最後まで再生し終わったら状態をリセットするイベント（統合）
+			// ⑦ 曲が最後まで再生し終わったら状態をリセットするイベント
 			audioEl.addEventListener('ended', () => {
 				progressBarEl.style.width = '0%';
+				currentTimeValEl.textContent = "00:00";
 				playBtnEl.textContent = '▶ PLAY';
 				playBtnEl.classList.remove('playing');
 				visualizerEl.classList.remove('playing');
@@ -210,6 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				audioEl.pause();
 				audioEl.currentTime = 0;
 				progressBarEl.style.width = '0%';
+				currentTimeValEl.textContent = "00:00";
+				durationTimeValEl.textContent = selectedType.time;
 				playBtnEl.textContent = '▶ PLAY';
 				playBtnEl.classList.remove('playing');
 				visualizerEl.classList.remove('playing');

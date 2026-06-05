@@ -2,7 +2,7 @@
 .custom-audio-player {
 	display: block; /* 横並びから縦並びのブロックレイアウトに変更 */
 	background: #111;
-	border: 1px solid #00ff00;
+	border: 1px solid #ffff00;
 	padding: 12px;
 	margin-top: 10px;
 	box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
@@ -46,7 +46,7 @@
 	width: 0%;
 	height: 100%;
 	background: #00ff00;
-	box-shadow: 0 0 8px #00ff00;
+	box-shadow: 0 0 8px #ffffff;
 	transition: width 0.1s linear;
 }
 
@@ -67,10 +67,20 @@
 }
 /* 再生中（playingクラス追加時）に個別の速度でピコピコ動く */
 .waveform-visualizer.playing .bar {
-	background: #00ff00;
-	box-shadow: 0 0 4px #00ff00;
+	background: #ff0000;
+	box-shadow: 0 0 4px #ffffff;
 	animation: wave 0.5s ease infinite alternate;
 }
+
+/* 時間カウンターのスタイル */
+.time-counter {
+	font-size: 0.85rem;
+	color: #ffffff;
+	font-family: monospace; /* 数字の幅を揃える */
+	margin: 4px 0 8px 0;
+	letter-spacing: 0.05em;
+}
+
 .waveform-visualizer.playing .bar:nth-child(1) { animation-delay: 0.1s; animation-duration: 0.4s; }
 .waveform-visualizer.playing .bar:nth-child(2) { animation-delay: 0.3s; animation-duration: 0.6s; }
 .waveform-visualizer.playing .bar:nth-child(3) { animation-delay: 0.0s; animation-duration: 0.3s; }
