@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const musicListContainer = document.getElementById('music-list');
 
 	// 1. JSONデータの読み込み
-	fetch('/script/songs.json')
+	fetch('script/songs.json')
 		.then(response => response.json())
 		.then(songs => { renderSongs(songs); })
 		.catch(error => {
