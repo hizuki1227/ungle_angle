@@ -10,14 +10,13 @@ const DownloadHandler = {
 		const dlContainer = document.createElement('div');
 		dlContainer.className = 'download-menu-container';
 		dlContainer.innerHTML = `
-			<select class="dl-select">
+			<select class="dl-select" style="flex-grow: 1; min-width: 0; padding: 4px; box-sizing: border-box;">
 				<option value="single">選択中のトラックをDL (.m4a/.mp3)</option>
 				<option value="ver-all">選択中のVerすべてのトラックをDL (ZIP)</option>
 				<option value="proj-all">プロジェクトすべての音源をDL (ZIP)</option>
 			</select>
-			<button class="dl-btn">DL</button>
+			<button class="dl-btn" style="flex-shrink: 0;">DL</button>
 		`;
-
 		// 既存のメタ情報エリア（プルダウンがある列）の末尾に目立たないように追加
 		const songMeta = songItem.querySelector('.song-meta');
 		if (songMeta) {

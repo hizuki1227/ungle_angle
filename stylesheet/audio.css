@@ -228,3 +228,34 @@
 .dl-btn:active {
 	border: 2px inset #00ff00;
 }
+
+/* 画面幅が小さいときは、基準の文字サイズを小さくする */
+@media (max-width: 768px) {
+html {
+    font-size: 14px; /* 全体のremがこれに比例して縮む */
+	}
+}
+
+/* 画面幅が500px以下の端末（一般的なスマホの縦画面）専用のDLメニュー見切れ完全防御 */
+@media screen and (max-width: 500px) {
+	/* プルダウンやDLボタンが並ぶメタエリアを縦積みに強制変更 */
+	.song-meta {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		gap: 10px !important;
+		width: 100% !important;
+	}
+	.ver-select, .type-select {
+		width: 100% !important;
+		box-sizing: border-box !important;
+	}
+	/* ダウンロードメニューのコンテナも横幅100%にして画面内に完全に収める */
+	.download-menu-container {
+		display: flex !important;
+		width: 100% !important;
+		margin-left: 0 !important; /* 右寄せの突っ張りを完全爆破 */
+		box-sizing: border-box !important;
+		gap: 5px !important;
+	}
+}
