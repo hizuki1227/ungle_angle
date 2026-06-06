@@ -1,6 +1,6 @@
 [
 	{
-		"id":"project-05",
+		"id":"project-07",
 		"title":"Work No. 13",
 		"date": "2026/06/07",
 		"status":"progress",
@@ -15,9 +15,27 @@
 			}
 		]
 	},
-	
+
 	{
-		"id":"project-04",
+		"id":"project-06",
+		"title":"Work No. 12",
+		"date": "2026/05/22",
+		"status":"cancel",
+		"project_comment": "リリースカットピアノを使いたいと想い始めた。しかし、キモいメロ、歌詞が思いつかなかったので早急に打ち切った。\n本当に聴くだけで恥ずかしくなる。",
+		"versions":[
+			{
+				"ver":"v12.0.0 [DEMO]",
+				"ver_comment": "最初にして最後のバージョン。\n今聞いたらメロがキモい。本当に聞きたくない。ダサいリリースカットピアノってあるんだね。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:47", "file": "source/sounds/work_no_12/12.0.0_[DEMO].m4a" }
+				]
+			}
+		]
+	},
+
+
+	{
+		"id":"project-05",
 		"title":"Work No. 11",
 		"date": "2026/04/30",
 		"status": "cancel",
@@ -34,9 +52,9 @@
 	},
 
 	{
-		"id": "project-03",
+		"id": "project-04",
 		"title": "Work No. 9",
-		"date": "2026/04/15",
+		"date": "2026/04/08",
 		"status": "complete",
 		"project_comment": "ピアノを弾いていたときに、Ⅰ→Ⅶm7→Ⅳ→Ⅳmが気に入り、そこからできた曲。\nこの曲は歌詞からメロを作ったから、メロにもそれなりの意味がある。。。はず？\n伴奏は、前奏、Aメロ1、Aメロ2、Bメロ、サビ、間奏、後奏でそれぞれ別だが、1番と2番は使いまわしだ。",
 		"versions": [
@@ -94,9 +112,74 @@
 	},
 
 	{
+		"id": "project-03",
+		"title": "Work No. 6",
+		"date": "2026/03/30",
+		"status": "complete",
+		"project_comment": "なにか歌詞のある曲を作りたいと思って始めた。歌詞は本当に適当でそれっぽい言葉を選んだだけ。AメロやBメロにつなげるのが下手すぎて意味がわからない曲になっている。",
+		"versions": [
+			{
+				"ver": "v6.1.0 [DEMO]",
+				"ver_comment": "ピアノで弾いていたら良さげな進行を思いついた。でもこの進行はすぐ没になった。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:33", "file": "source/sounds/work_no_6/6.1.0_[DEMO].m4a" }
+				]
+			},
+			{
+				"ver":"v6.3.0 [DEMO]",
+				"ver_comment": "とりあえず、それっぽい歌詞を入れた。ドラムの音がちゃっちい。",
+				"types": [
+					{ "name": "Original Mix", "time": "01:08", "file": "source/sounds/work_no_6/6.3.0_[DEMO].m4a" },
+					{ "name": "Lead E.Pno", "time": "01:08", "file": "source/sounds/work_no_6/6.3.0_Lead E.Piano_[DEMO].m4a" }
+				]
+			},
+			{
+				"ver":"v6.4.0",
+				"ver_comment": "前バージョンから少し拡張\nあと、ベースを追加。\nアウトロで電話がプツリと切れる演出と、多少のピアノを追加",
+				"types": [
+					{ "name": "Original Mix", "time": "01:28", "file": "source/sounds/work_no_6/6.4.0.m4a" },
+					{ "name": "Lead E.Pno", "time": "01:28", "file": "source/sounds/work_no_6/6.4.0_Lead E.Piano.m4a" }
+				]
+			},
+			{
+				"ver":"v6.5.0",
+				"ver_comment": "前バージョンと何が変わったのか忘れた。。。。",
+				"types": [
+					{ "name": "Original Mix", "time": "01:28", "file": "source/sounds/work_no_6/6.5.0.m4a" },
+					{ "name": "Lead E.Pno", "time": "01:28", "file": "source/sounds/work_no_6/6.5.0_Lead E.Piano.m4a" }
+				]
+			},
+			{
+				"ver":"v6.7.5",
+				"ver_comment": "ベースの音色を変更。あとベースラインもリズムを付けて遊んだ\nアウトロの電話ぶつ切り演出は抹消し、何故か短調アルペジオで終わる。",
+				"types": [
+					{ "name": "Original Mix", "time": "01:31", "file": "source/sounds/work_no_6/6.7.5.m4a" },
+					{ "name": "Lead E.Pno", "time": "01:31", "file": "source/sounds/work_no_6/6.7.5_Lead E.Piano.m4a" }
+				]
+			},
+			{
+				"ver":"v6.8.0",
+				"ver_comment": "ピアノと、特にベースラインの主張が激しくなった。",
+				"types": [
+					{ "name": "Original Mix", "time": "01:31", "file": "source/sounds/work_no_6/6.8.0.m4a" },
+					{ "name": "Lead E.Pno", "time": "01:31", "file": "source/sounds/work_no_6/6.8.0_Lead E.Piano.m4a" }
+				]
+			},
+			{
+				"ver":"v6.8.5",
+				"ver_comment": "イントロを創新し、ピアノの主張をかなり抑え、ベースをメインにした。\nイントロとアウトロでホワイトノイズを流した。意味はない。",
+				"types": [
+					{ "name": "Original Mix", "time": "01:31", "file": "source/sounds/work_no_6/6.8.5.m4a" },
+					{ "name": "Lead E.Pno", "time": "01:31", "file": "source/sounds/work_no_6/6.8.5_Lead E.Piano.m4a" }
+				]
+			}
+		]
+	},
+
+	{
 		"id": "project-02",
 		"title": "Work No. 2",
-		"date": "2026/03/30",
+		"date": "2026/03/10",
 		"status": "complete",
 		"project_comment": "ギター、ベース、ピアノ、シンセをとりあえずぶち込んで作ってみた。\nコード進行から先に制作したので、メロに特に意味はない。",
 		"versions": [

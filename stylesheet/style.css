@@ -55,18 +55,15 @@ main { max-width: 600px; margin: 0 auto; }
 	overflow-wrap: anywhere;
 }
 
-.song-item {
-	border-bottom: 1px dashed #00ff00;
-	padding: 15px 0;
-}
-.song-item:last-child {
-	border-bottom: none;
+/* 詳細表示用のコンテナ */
+.song-item-detail {
+	padding: 5px 0;
 }
 .song-header {
 	display: flex;
 	justify-content: space-between;
 	font-weight: bold;
-	margin-bottom: 5px;
+	margin-bottom: 12px;
 }
 .song-date {
 	font-size: 0.8rem;
@@ -76,7 +73,7 @@ main { max-width: 600px; margin: 0 auto; }
 	margin-bottom: 8px;
 	font-size: 0.9rem;
 }
-.ver-select, .type-select {
+.ver-select, .type-select, .dl-select {
 	background: #000;
 	color: #00ff00;
 	border: 1px solid #00ff00;
@@ -89,8 +86,90 @@ main { max-width: 600px; margin: 0 auto; }
 	margin-top: 5px;
 }
 footer { text-align: center; margin-top: 30px; }
-button { background-color: #000; color: #00ff00; border: 2px outset #00ff00; padding: 5px 15px; cursor: pointer; }
-button:active { border: 2px inset #00ff00; }
+button, .dl-btn { background-color: #000; color: #00ff00; border: 2px outset #00ff00; padding: 5px 15px; cursor: pointer; font-family: inherit; }
+button:active, .dl-btn:active { border: 2px inset #00ff00; }
+
+.back-to-dashboard {
+	margin-bottom: 15px;
+}
+.back-to-dashboard a {
+	color: #ff00ff;
+	text-decoration: none;
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+.back-to-dashboard a:hover {
+	text-decoration: underline;
+}
+
+/* ==========================================================================
+   【新規追加】ダッシュボード・グリッドカードシステム
+   ========================================================================== */
+#project-grid-container {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-top: 15px;
+}
+
+.project-card {
+	display: block;
+	border: 1px solid #00ff00;
+	background: #0a0a0a;
+	padding: 12px;
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.2s ease;
+}
+
+.project-card:hover {
+	background: #152215;
+	border-color: #ffffff;
+	box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.card-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 6px;
+}
+
+.card-title {
+	margin: 0;
+	font-size: 1.5rem;
+	color: #00ff00;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.project-card:hover .card-title {
+	color: #ffffff;
+}
+
+.card-meta {
+	display: flex;
+	gap: 15px;
+	font-size: 0.75rem;
+	color: #666666;
+	margin-bottom: 8px;
+}
+
+.card-comment-preview {
+	margin: 0;
+	font-size: 0.8rem;
+	color: #ffff00;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /* 長いテキストは自動で「...」にする */
+}
+
+.card-enter-label {
+	text-align: right;
+	font-size: 0.7rem;
+	color: #ff00ff;
+	font-weight: bold;
+	margin-top: 4px;
+}
 
 /* ==========================================================================
    凡例パネル ＆ 指定英語名ステータスバッジ（16pxアニメーション版）
@@ -133,9 +212,7 @@ button:active { border: 2px inset #00ff00; }
 	flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   ★【新規追加】0. Progress：進行中（工事中・ローディング風のアンバー斜線スクロール）
-   -------------------------------------------------------------------------- */
+/* 0. Progress：進行中（工事中風アンバー斜線スクロール） */
 .status-badge.progress {
 	background: linear-gradient(
 		135deg,
@@ -144,23 +221,17 @@ button:active { border: 2px inset #00ff00; }
 		#ffaa00 75%, #000000 75%,
 		#000000 100%
 	);
-	background-size: 10px 10px; /* 細かいピクセル縞模様 */
+	background-size: 10px 10px;
 	border: 2px solid #ffaa00;
 	box-shadow: 0 0 6px #ffaa00;
 	animation: progress-stripe 0.6s linear infinite;
 }
 @keyframes progress-stripe {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 10px 0;
-	}
+	0% { background-position: 0 0; }
+	100% { background-position: 10px 0; }
 }
 
-/* --------------------------------------------------------------------------
-   1. Rejection：赤色の「❌」ドット ＆ 鼓動（パルス）アニメーション
-   -------------------------------------------------------------------------- */
+/* 1. Rejection：赤色の「❌」ドット ＆ パルス */
 .status-badge.rejection {
 	background: transparent;
 	border: 2px solid #ff3333;
@@ -179,19 +250,11 @@ button:active { border: 2px inset #00ff00; }
 		-2px 2px 0 #ff3333, 2px 2px 0 #ff3333;
 }
 @keyframes rejection-pulse {
-	0%, 100% {
-		box-shadow: 0 0 2px #ff0000;
-		border-color: #ff3333;
-	}
-	50% {
-		box-shadow: 0 0 10px #ff0000, inset 0 0 4px #ff0000;
-		border-color: #ff6666;
-	}
+	0%, 100% { box-shadow: 0 0 2px #ff0000; border-color: #ff3333; }
+	50% { box-shadow: 0 0 10px #ff0000, inset 0 0 4px #ff0000; border-color: #ff6666; }
 }
 
-/* --------------------------------------------------------------------------
-   2. Cancel：黄色の「⚠️」ドット ＆ アラート点滅（フラッシュ）アニメーション
-   -------------------------------------------------------------------------- */
+/* 2. Cancel：黄色の「⚠️」ドット ＆ フラッシュ */
 .status-badge.cancel {
 	background: #222200;
 	border: 2px solid #ffff00;
@@ -208,19 +271,11 @@ button:active { border: 2px inset #00ff00; }
 	box-shadow: 0 6px 0 #ffff00;
 }
 @keyframes cancel-flash {
-	0%, 100% {
-		box-shadow: 0 0 8px #ffff00;
-		opacity: 1;
-	}
-	50% {
-		box-shadow: 0 0 1px #888800;
-		opacity: 0.4;
-	}
+	0%, 100% { box-shadow: 0 0 8px #ffff00; opacity: 1; }
+	50% { box-shadow: 0 0 1px #888800; opacity: 0.4; }
 }
 
-/* --------------------------------------------------------------------------
-   3. Complete：青色のマスターレコード円形ドット ＆ スピンループアニメーション
-   -------------------------------------------------------------------------- */
+/* 3. Complete：青色の円形 ＆ スピンループ */
 .status-badge.complete {
 	background: #0077ff;
 	border: 2px dashed #00ffff;
@@ -240,15 +295,7 @@ button:active { border: 2px inset #00ff00; }
 	box-shadow: 0 0 2px #ffffff;
 }
 @keyframes complete-spin {
-	0% {
-		transform: rotate(0deg);
-		box-shadow: 0 0 4px #00ffff;
-	}
-	50% {
-		box-shadow: 0 0 10px #00ffff;
-	}
-	100% {
-		transform: rotate(360deg);
-		box-shadow: 0 0 4px #00ffff;
-	}
+	0% { transform: rotate(0deg); box-shadow: 0 0 4px #00ffff; }
+	50% { box-shadow: 0 0 10px #00ffff; }
+	100% { transform: rotate(360deg); box-shadow: 0 0 4px #00ffff; }
 }

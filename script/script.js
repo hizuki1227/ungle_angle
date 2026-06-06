@@ -1,285 +1,275 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const musicListContainer = document.getElementById('music-list');
+	const workspace = document.getElementById('single-project-workspace');
+	if (!workspace) return; // 詳細ページではない場合はスキップ
 
-	// 1. JSONデータの読み込み
+	// URLから「?id=xxxxx」の値を解析して抽出する
+	const urlParams = new URLSearchParams(window.location.search);
+	const targetProjectId = urlParams.get('id');
+
+	if (!targetProjectId) {
+		workspace.innerHTML = '<p style="color:#ff0000;">エラー: プロジェクトIDが指定されていません。</p>';
+		return;
+	}
+
+	// データの読み込み
 	fetch('script/songs.json')
 		.then(response => response.json())
-		.then(songs => { renderSongs(songs); })
+		.then(songs => {
+			const currentSong = songs.find(s => s.id === targetProjectId);
+			
+			if (!currentSong) {
+				workspace.innerHTML = '<p style="color:#ff0000;">エラー: 指定されたプロジェクトが見つかりません。</p>';
+				return;
+			}
+
+			document.title = `${currentSong.title} // Ungle Angle`;
+			renderSingleProject(currentSong);
+		})
 		.catch(error => {
-			console.error('データの読み込みに失敗しました:', error);
-			musicListContainer.innerHTML = '<p>曲情報の読み込みに失敗しました。</p>';
+			console.error('詳細データの読み込みに失敗しました:', error);
+			workspace.innerHTML = '<p>データの読み込みに失敗しました。</p>';
 		});
 
-	// 2. 曲リストの描画関数
-	function renderSongs(songs) {
-		musicListContainer.innerHTML = ''; 
+	/**
+	 * 特定の1プロジェクトのみを深く構築・レンダリングする関数
+	 */
+	function renderSingleProject(song) {
+		workspace.innerHTML = '';
 
-		songs.forEach(song => {
-			const songItem = document.createElement('div');
-			songItem.className = 'song-item';
+		const songItem = document.createElement('div');
+		songItem.className = 'song-item-detail';
 
-			// デフォルトは「最後のバージョン（最新版）」
-			const lastVerIndex = song.versions.length - 1;
-			const defaultVer = song.versions[lastVerIndex];
+		const lastVerIndex = song.versions.length - 1;
+		const defaultVer = song.versions[lastVerIndex];
 
-			// プロジェクトコメントの判定
-			const projectComment = song.project_comment && song.project_comment.trim() !== "" 
-				? song.project_comment : "コメントなし";
+		const projectComment = song.project_comment && song.project_comment.trim() !== "" 
+			? song.project_comment : "No comment.";
 
-			// ① バージョン選択プルダウンのHTML生成
-			let verOptionsHTML = '';
-			song.versions.forEach((v, index) => {
-				const isSelected = (index === lastVerIndex) ? 'selected' : '';
-				verOptionsHTML += `<option value="${index}" ${isSelected}>${v.ver}</option>`;
-			});
+		// バージョン選択プルダウンのHTML生成
+		let verOptionsHTML = '';
+		song.versions.forEach((v, index) => {
+			const isSelected = (index === lastVerIndex) ? 'selected' : '';
+			verOptionsHTML += `<option value="${index}" ${isSelected}>${v.ver}</option>`;
+		});
 
-			// HTMLの骨組みを出力（指定の英語クラス名に合わせたステータスバッジを出力）
-			songItem.innerHTML = `
-				<div class="song-header">
-					<span class="song-title">
-						<span class="status-badge ${song.status}"></span>
-						♪ ${song.title}
-					</span>
-					<span class="song-date">Up: ${song.date}</span>
+		// ★単一バージョンの場合は、disabledにして形状を固定表示
+		const verSelectDisabledAttr = song.versions.length <= 1 ? 'disabled="true"' : '';
+
+		const statusClass = song.status ? song.status.toLowerCase() : 'progress';
+
+		// ★ボタンがズレる・はみ出る問題を解消するため、内部テキストを完全に無くしたピュアな構造に再生成
+		songItem.innerHTML = `
+			<div class="song-header">
+				<div class="song-title">
+					<span class="status-badge ${statusClass}"></span>
+					<span class="title-text" style="font-size:1.6rem; color:#00ff00;">${song.title}</span>
+				</div>
+				<span class="song-date">ARCHIVE DATE: ${song.date}</span>
+			</div>
+			
+			<div class="project-comment-box">
+				<p class="comment-label">[PROJECT MASTER COMMENT]</p>
+				<p class="comment-text">${projectComment}</p>
+			</div>
+
+			<div class="song-meta">
+				<select class="ver-select" ${verSelectDisabledAttr}>
+					${verOptionsHTML}
+				</select>
+				<select class="type-select"></select>
+				<span class="song-time-display">DURATION: <span class="time-val">00:00</span></span>
+			</div>
+
+			<div class="custom-audio-player">
+				<div class="player-controls">
+					<button class="play-btn" title="PLAY/PAUSE"></button>
+					<button class="stop-btn" title="STOP">■</button>
 				</div>
 				
-				<div class="project-comment-box">
-					<p class="comment-label">【Project Note】</p>
-					<p class="comment-text">${projectComment}</p>
+				<div class="waveform-visualizer">
+					<div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+					<div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+					<div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
 				</div>
-
-				<div class="song-meta">
-					<select class="ver-select">${verOptionsHTML}</select>
-					<select class="type-select"></select>
-					<span class="song-time">Time: <span class="time-val"></span></span>
+				
+				<div class="player-status-bar">
+					<span class="player-status-text">READY</span>
 				</div>
-
-				<div class="ver-comment-box">
-					<p class="comment-label">【Version Note】</p>
-					<p class="comment-text ver-comment-val"></p>
-				</div>
-
-				<div class="custom-audio-player">
-					<div class="player-controls">
-						<button class="play-btn" aria-label="Play/Pause">
-							<span class="icon-play"></span>
-							<span class="icon-pause" style="display:none;"></span>
-						</button>
-						<button class="stop-btn" aria-label="Stop">
-							<span class="icon-stop"></span>
-						</button>
-					</div>
-					
-					<div class="progress-container">
+				
+				<div class="timeline-container">
+					<div class="progress-container-wrapper">
 						<div class="progress-bar"></div>
 					</div>
-
-					<div class="time-counter">
-						<span class="current-time-val">00:00</span> / <span class="duration-time-val">00:00</span>
-					</div>
-
-					<div class="waveform-visualizer">
-						<div class="bar"></div>
-						<div class="bar"></div>
-						<div class="bar"></div>
-						<div class="bar"></div>
-						<div class="bar"></div>
-					</div>
-
-					<div class="player-status">STOPPED</div>
 				</div>
-				<audio class="song-audio" src="" style="display:none;"></audio>
-			`;
+				
+				<div class="time-counter">
+					<span class="current-time-val">00:00</span> / <span class="duration-time-val">00:00</span>
+				</div>
+			</div>
 
-			// 要素のキャッシュ
-			const verSelectEl = songItem.querySelector('.ver-select');
-			const typeSelectEl = songItem.querySelector('.type-select');
-			const timeValEl = songItem.querySelector('.time-val');
-			const audioEl = songItem.querySelector('.song-audio');
-			const verCommentValEl = songItem.querySelector('.ver-comment-val');
-			const playBtnEl = songItem.querySelector('.play-btn');
-			const statusEl = songItem.querySelector('.player-status');
-			const stopBtnEl = songItem.querySelector('.stop-btn');
-			const progressContainerEl = songItem.querySelector('.progress-container');
-			const progressBarEl = songItem.querySelector('.progress-bar');
-			const visualizerEl = songItem.querySelector('.waveform-visualizer');
-			const currentTimeValEl = songItem.querySelector('.current-time-val');
-			const durationTimeValEl = songItem.querySelector('.duration-time-val');
+			<div class="ver-comment-box">
+				<p class="comment-label">[SELECTED VERSION COMMENT]</p>
+				<p class="ver-comment-text comment-text"></p>
+			</div>
 
-			// ボタン内のアイコン要素のキャッシュ
-			const iconPlayEl = playBtnEl.querySelector('.icon-play');
-			const iconPauseEl = playBtnEl.querySelector('.icon-pause');
+			<audio class="song-audio" preload="metadata"></audio>
+		`;
 
-			// 秒数を「00:00」の形式に変換するヘルパー関数
-			function formatTime(seconds) {
-				if (isNaN(seconds)) return "00:00";
-				const mins = Math.floor(seconds / 60);
-				const secs = Math.floor(seconds % 60);
-				return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-			}
+		workspace.appendChild(songItem);
 
-			// バージョン選択メニューの活性・非活性を制御
-			if (song.versions.length <= 1) {
-				verSelectEl.disabled = true;
-				verSelectEl.style.opacity = "0.6";
+		const verSelectEl = songItem.querySelector('.ver-select');
+		const typeSelectEl = songItem.querySelector('.type-select');
+		const timeValEl = songItem.querySelector('.time-val');
+		const verCommentTextEl = songItem.querySelector('.ver-comment-text');
+		const audioEl = songItem.querySelector('.song-audio');
+
+		const playBtnEl = songItem.querySelector('.play-btn');
+		const stopBtnEl = songItem.querySelector('.stop-btn');
+		const visualizerEl = songItem.querySelector('.waveform-visualizer');
+		const statusEl = songItem.querySelector('.player-status-text');
+		const progressContainerEl = songItem.querySelector('.progress-container-wrapper');
+		const progressBarEl = songItem.querySelector('.progress-bar');
+		const currentTimeValEl = songItem.querySelector('.current-time-val');
+		const durationTimeValEl = songItem.querySelector('.duration-time-val');
+
+		/**
+		 * タイプメニュー（Track種別）の更新関数
+		 */
+		function updateTypeMenu(versionObj) {
+			typeSelectEl.innerHTML = '';
+			
+			if (!versionObj) return;
+
+			versionObj.types.forEach((t, index) => {
+				const opt = document.createElement('option');
+				opt.value = index;
+				opt.textContent = t.name;
+				typeSelectEl.appendChild(opt);
+			});
+
+			// ★【仕様修正】タイプ（トラック種別）も単一の場合は、同じくdisabledにして固定表示化！
+			if (versionObj.types.length <= 1) {
+				typeSelectEl.setAttribute('disabled', 'true');
 			} else {
-				verSelectEl.disabled = false;
-				verSelectEl.style.opacity = "1.0";
+				typeSelectEl.removeAttribute('disabled');
 			}
 
-			// ② タイプ（インスト等）の選択肢を動的に書き換える関数
-			function updateTypeMenu(selectedVer) {
-				const verComment = selectedVer.ver_comment && selectedVer.ver_comment.trim() !== "" 
-					? selectedVer.ver_comment : "コメントなし";
-				verCommentValEl.textContent = verComment;
+			const verComment = versionObj.ver_comment && versionObj.ver_comment.trim() !== "" 
+				? versionObj.ver_comment : "No comment.";
+			verCommentTextEl.textContent = verComment;
 
-				let typeOptionsHTML = '';
-				selectedVer.types.forEach((t, index) => {
-					typeOptionsHTML += `<option value="${index}">${t.name}</option>`;
-				});
-				typeSelectEl.innerHTML = typeOptionsHTML;
-
-				if (selectedVer.types.length <= 1) {
-					typeSelectEl.disabled = true;
-					typeSelectEl.style.opacity = "0.6";
-				} else {
-					typeSelectEl.disabled = false;
-					typeSelectEl.style.opacity = "1.0";
-				}
-				typeSelectEl.style.display = 'inline-block';
-
-				const defaultType = selectedVer.types[0];
-				timeValEl.textContent = defaultType.time;
-				audioEl.src = defaultType.file;
-
-				// プルダウン初期化・変更時はプレイヤーの状態とカウンター、アイコンもリセット
-				audioEl.pause();
-				audioEl.currentTime = 0;
-				if (progressBarEl) progressBarEl.style.width = '0%';
-				currentTimeValEl.textContent = "00:00";
-				durationTimeValEl.textContent = defaultType.time;
-				
-				playBtnEl.classList.remove('playing');
-				iconPlayEl.style.display = 'inline-block';
-				iconPauseEl.style.display = 'none';
-				
-				visualizerEl.classList.remove('playing');
-				statusEl.textContent = 'READY';
+			if (versionObj.types.length > 0) {
+				const firstType = versionObj.types[0];
+				timeValEl.textContent = firstType.time;
+				durationTimeValEl.textContent = firstType.time;
+				audioEl.src = firstType.file;
 			}
+			
+			// プレイヤー状態初期化
+			audioEl.pause();
+			audioEl.currentTime = 0;
+			if (progressBarEl) progressBarEl.style.width = '0%';
+			currentTimeValEl.textContent = "00:00";
+			playBtnEl.classList.remove('playing');
+			visualizerEl.classList.remove('playing');
+			statusEl.textContent = 'READY';
+			statusEl.classList.remove('playing');
+		}
 
-			// 変数宣言がすべて終わった直後に初期表示を実行
-			updateTypeMenu(defaultVer);
+		// 初期描画
+		updateTypeMenu(defaultVer);
 
-			audioEl.addEventListener('loadedmetadata', () => {
-				durationTimeValEl.textContent = formatTime(audioEl.duration);
-			});
+		// ダウンロードモジュールの接続
+		if (typeof DownloadHandler !== 'undefined' && DownloadHandler.setup) {
+			DownloadHandler.setup(songItem, song, verSelectEl, typeSelectEl);
+		}
 
-			// ③ 再生・一時停止の挙動をコントロールするイベント
-			playBtnEl.addEventListener('click', () => {
-				if (audioEl.paused) {
-					audioEl.play();
+		// プレイヤーコントロールロジック
+		playBtnEl.addEventListener('click', () => {
+			if (audioEl.paused) {
+				audioEl.play().then(() => {
 					playBtnEl.classList.add('playing');
-					iconPlayEl.style.display = 'none';
-					iconPauseEl.style.display = 'inline-block';
 					visualizerEl.classList.add('playing');
-					statusEl.textContent = 'PLAYING...';
+					statusEl.textContent = 'PLAYING';
 					statusEl.classList.add('playing');
-				} else {
-					audioEl.pause();
-					playBtnEl.classList.remove('playing');
-					iconPlayEl.style.display = 'inline-block';
-					iconPauseEl.style.display = 'none';
-					visualizerEl.classList.remove('playing');
-					statusEl.textContent = 'PAUSED';
-					statusEl.classList.remove('playing');
-				}
-			});
-
-			// ④ ストップボタンのイベント
-			stopBtnEl.addEventListener('click', () => {
+				}).catch(err => console.error("再生に失敗しました:", err));
+			} else {
 				audioEl.pause();
-				audioEl.currentTime = 0;
-				if (progressBarEl) progressBarEl.style.width = '0%';
-				currentTimeValEl.textContent = "00:00";
-				
 				playBtnEl.classList.remove('playing');
-				iconPlayEl.style.display = 'inline-block';
-				iconPauseEl.style.display = 'none';
-				
 				visualizerEl.classList.remove('playing');
-				statusEl.textContent = 'STOPPED';
+				statusEl.textContent = 'PAUSED';
 				statusEl.classList.remove('playing');
-			});
+			}
+		});
 
-			// ⑤ 再生位置の進捗に合わせてプログレスバーを伸ばし、時間を更新するイベント
-			audioEl.addEventListener('timeupdate', () => {
-				if (audioEl.duration && progressBarEl) {
-					const progressPercent = (audioEl.currentTime / audioEl.duration) * 100;
-					progressBarEl.style.width = `${progressPercent}%`;
-				}
-				currentTimeValEl.textContent = formatTime(audioEl.currentTime);
-			});
+		stopBtnEl.addEventListener('click', () => {
+			audioEl.pause();
+			audioEl.currentTime = 0;
+			if (progressBarEl) progressBarEl.style.width = '0%';
+			currentTimeValEl.textContent = "00:00";
+			playBtnEl.classList.remove('playing');
+			visualizerEl.classList.remove('playing');
+			statusEl.textContent = 'STOPPED';
+			statusEl.classList.remove('playing');
+		});
 
-			// ⑥ プログレスバーのクリック位置にジャンプ（シーク）するイベント
-			progressContainerEl.addEventListener('click', (e) => {
-				const containerWidth = progressContainerEl.clientWidth;
-				const clickX = e.offsetX;
-				const duration = audioEl.duration;
-
-				if (duration) {
-					audioEl.currentTime = (clickX / containerWidth) * duration;
-				}
-			});
-
-			// ⑦ 曲が最後まで再生し終わったら状態をリセットするイベント
-			audioEl.addEventListener('ended', () => {
-				if (progressBarEl) progressBarEl.style.width = '0%';
-				currentTimeValEl.textContent = "00:00";
-				
-				playBtnEl.classList.remove('playing');
-				iconPlayEl.style.display = 'inline-block';
-				iconPauseEl.style.display = 'none';
-				
-				visualizerEl.classList.remove('playing');
-				statusEl.textContent = 'FINISHED';
-				statusEl.classList.remove('playing');
-			});
-
-			// ⑧ バージョン変更イベント
-			verSelectEl.addEventListener('change', (e) => {
-				const selectedVer = song.versions[e.target.value];
-				updateTypeMenu(selectedVer);
-			});
-
-			// ⑨ タイプ変更イベント
-			typeSelectEl.addEventListener('change', (e) => {
-				const currentVer = song.versions[verSelectEl.value];
-				const selectedType = currentVer.types[e.target.value];
-				
-				timeValEl.textContent = selectedType.time;
-				audioEl.src = selectedType.file;
-
-				// タイプ変更時もプレイヤーの状態をリセット
-				audioEl.pause();
-				audioEl.currentTime = 0;
-				if (progressBarEl) progressBarEl.style.width = '0%';
-				currentTimeValEl.textContent = "00:00";
-				durationTimeValEl.textContent = selectedType.time;
-				
-				playBtnEl.classList.remove('playing');
-				iconPlayEl.style.display = 'inline-block';
-				iconPauseEl.style.display = 'none';
-				
-				visualizerEl.classList.remove('playing');
-				statusEl.textContent = 'READY';
-			});
-
-			// 外部ファイル化したダウンロード機構をドッキング
-			if (typeof DownloadHandler !== 'undefined') {
-				DownloadHandler.setup(songItem, song, verSelectEl, typeSelectEl);
+		audioEl.addEventListener('timeupdate', () => {
+			const current = audioEl.currentTime;
+			const duration = audioEl.duration || 0;
+			
+			if (duration > 0) {
+				const pct = (current / duration) * 100;
+				if (progressBarEl) progressBarEl.style.width = `${pct}%`;
 			}
 
-			musicListContainer.appendChild(songItem);
+			const curMin = Math.floor(current / 60).toString().padStart(2, '0');
+			const curSec = Math.floor(current % 60).toString().padStart(2, '0');
+			currentTimeValEl.textContent = `${curMin}:${curSec}`;
+		});
+
+		// ★【機能修復】プログレスバーをクリック/タップした位置へ確実に再生ヘッドを移動させる
+		progressContainerEl.addEventListener('click', (e) => {
+			const containerWidth = progressContainerEl.clientWidth;
+			// 要素の左端からの相対クリック位置を厳密に取得
+			const clickX = e.offsetX;
+			const duration = audioEl.duration;
+			if (duration > 0 && containerWidth > 0) {
+				const targetTime = (clickX / containerWidth) * duration;
+				audioEl.currentTime = targetTime;
+			}
+		});
+
+		audioEl.addEventListener('ended', () => {
+			if (progressBarEl) progressBarEl.style.width = '0%';
+			currentTimeValEl.textContent = "00:00";
+			playBtnEl.classList.remove('playing');
+			visualizerEl.classList.remove('playing');
+			statusEl.textContent = 'FINISHED';
+			statusEl.classList.remove('playing');
+		});
+
+		verSelectEl.addEventListener('change', (e) => {
+			const selectedVer = song.versions[e.target.value];
+			updateTypeMenu(selectedVer);
+		});
+
+		typeSelectEl.addEventListener('change', (e) => {
+			const currentVer = song.versions[verSelectEl.value];
+			const selectedType = currentVer.types[e.target.value];
+			
+			timeValEl.textContent = selectedType.time;
+			audioEl.src = selectedType.file;
+
+			audioEl.pause();
+			audioEl.currentTime = 0;
+			if (progressBarEl) progressBarEl.style.width = '0%';
+			currentTimeValEl.textContent = "00:00";
+			durationTimeValEl.textContent = selectedType.time;
+			
+			playBtnEl.classList.remove('playing');
+			visualizerEl.classList.remove('playing');
+			statusEl.textContent = 'READY';
+			statusEl.classList.remove('playing');
 		});
 	}
 });

@@ -3,11 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ungle Angle</title>
+	<title>Ungle Angle - Dashboard</title>
 	<link rel="icon" href="source/imgs/icon.png" type="image/png">
 	<link rel="stylesheet" href="stylesheet/common.css">
 	<link rel="stylesheet" href="stylesheet/style.css">
-	<link rel="stylesheet" href="stylesheet/audio.css">
 </head>
 <body>
 
@@ -20,16 +19,16 @@
 
 	<main>
 		<section class="box">
-			<h2>Music List</h2>
+			<h2>Project Dashboard</h2>
 			
 			<div class="status-legend-panel">
 				<div class="legend-item">
-					<span class="status-badge complete"></span>
-					<span class="legend-label">Complete</span>
-				</div>
-				<div class="legend-item">
 					<span class="status-badge progress"></span>
 					<span class="legend-label">Progress</span>
+				</div>
+				<div class="legend-item">
+					<span class="status-badge complete"></span>
+					<span class="legend-label">Complete</span>
 				</div>
 				<div class="legend-item">
 					<span class="status-badge cancel"></span>
@@ -41,7 +40,7 @@
 				</div>
 			</div>
 
-			<div id="music-list"></div>
+			<div id="project-grid-container"></div>
 		</section>
 	</main>
 
@@ -49,8 +48,6 @@
 		<p class="copyright">© 2026 lmu by hizuki_1227. All Rights Reserved.</p>
 	</footer>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-	<script src="script/script.js"></script>
-	<script src="script/download-handler.js"></script>
+	<script src="script/list-renderer.js"></script>
 </body>
 </html>

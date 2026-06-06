@@ -1,12 +1,7 @@
-/* --- 拡張プレイヤー・プログレスバー・波形アニメーションのスタイル追記 --- */
-.song-item {
-	/* ★各プロジェクト（曲単位の枠）同士の間隔をガッツリ広げる設定 */
-	margin-bottom: 45px; 
-}
-
+/* --- 拡張プレイヤー・プログレスバー・波形アニメーションの独立スタイルシート --- */
 .custom-audio-player {
-	display: block; /* 横並びから縦並びのブロックレイアウトに変更 */
-	background: #111;
+	display: block;
+	background: #111111;
 	border: 1px solid #ffff00;
 	padding: 12px;
 	margin-top: 10px;
@@ -19,99 +14,83 @@
 	margin-bottom: 10px;
 }
 
-/* ★文字依存をなくすため、PLAYボタンとSTOPボタンの共通ベースを設定 */
+/* ボタンベース定義をピクセルパーフェクトに最適化 */
 .play-btn, .stop-btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 45px;  /* ボタンの幅を固定 */
-	height: 35px; /* ボタンの高さを固定 */
-	background: #000;
-	border: 1px solid #00ff00;
+	width: 45px;
+	height: 35px;
+	background: #000000;
 	font-family: inherit;
-	font-size: 0.9rem;
-	padding: 0;   /* アイコンを中央に配置するためパディングをリセット */
+	padding: 0;
+	margin: 0;
 	cursor: pointer;
-	transition: all 0.2s ease;
+	box-sizing: border-box;
 	vertical-align: middle;
+	position: relative;
+	transition: all 0.15s ease;
 }
 
+/* 再生ボタン：ネオングリーン枠 */
+.play-btn {
+	border: 1px solid #00ff00;
+}
+
+/* 停止ボタン：ネオンレッドの警告色 */
 .stop-btn {
-	margin-left: 5px;
+	margin-left: 6px;
+	border: 1px solid #ff3333;
+	color: #ff3333;
+	font-size: 0.75rem;
+	text-shadow: 0 0 3px #ff0000;
 }
 
+/* 再生ボタンのインジケーター（ピュアCSSによるド真ん中のシャープな矢印） */
+.play-btn::before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 6px 0 6px 10px;
+	border-color: transparent transparent transparent #00ff00;
+	transform: translateX(1px);
+	transition: all 0.15s ease;
+}
+
+/* 再生中（playing状態）は普通の一時停止「2本の綺麗な縦線」にする */
+.play-btn.playing::before {
+	content: "";
+	width: 10px; /* 2本の線と隙間を合わせた全体の横幅 */
+	height: 14px; /* 一時停止マークの縦幅 */
+	background: transparent;
+	/* 左の線と右の線を等幅（3px）のソリッドな直線で描画 */
+	border-left: 5px solid #00ff00;
+	border-right: 5px solid #00ff00;
+	border-top: none;
+	border-bottom: none;
+	border-width: 0 5px 0 5px;
+	transform: translateX(0);
+}
+/* ホバー時のネオングロー効果 */
 .play-btn:hover {
 	background: #00ff00;
 	box-shadow: 0 0 10px #00ff00;
 }
+.play-btn:hover::before {
+	border-color: transparent transparent transparent #000000;
+}
+.play-btn.playing:hover::before {
+	border-color: #000000;
+}
 
+/* 停止ボタンホバー時のサイバーレッド明滅 */
 .stop-btn:hover {
-	background: #ff0000; /* 停止ボタンはホバーで赤く光る */
-	color: #000;
-	border-color: #ff0000;
-	box-shadow: 0 0 10px #ff0000;
-}
-
-/* ★CSSで描く再生アイコン（右向きの緑色の三角形） */
-.icon-play {
-	display: inline-block;
-	width: 0;
-	height: 0;
-	border-top: 6px solid transparent;
-	border-bottom: 6px solid transparent;
-	border-left: 10px solid #00ff00; /* 左の枠線を伸ばして三角を作る */
-	margin-left: 2px; /* 位置の微調整 */
-	transition: border-left-color 0.2s ease;
-}
-.play-btn:hover .icon-play {
-	border-left-color: #000; /* ホバー時は矢印が黒くなる */
-}
-
-/* ★CSSで描く一時停止アイコン（オレンジの二本線） */
-.icon-pause {
-	display: inline-block;
-	width: 10px;
-	height: 12px;
-	border-left: 3px solid #ffaa00;   /* 左の縦線 */
-	border-right: 3px solid #ffaa00;  /* 右の縦線 */
-	box-sizing: border-box;
-	transition: border-color 0.2s ease;
-}
-.play-btn:hover .icon-pause {
-	border-left-color: #000;  /* ホバー時は二本線が黒くなる */
-	border-right-color: #000;
-}
-
-/* ★CSSで描く停止アイコン（緑色の正方形） */
-.icon-stop {
-	display: inline-block;
-	width: 10px;
-	height: 10px;
-	background: #00ff00;
-	transition: background 0.2s ease;
-}
-.stop-btn:hover .icon-stop {
-	background: #000; /* ホバー時は四角が黒くなる */
-}
-
-/* プログレスバー（シークバー）の外枠 */
-.progress-container {
-	width: 100%;
-	height: 12px;
-	background: #222;
-	border: 1px solid #00ff00;
-	margin: 8px 0;
-	cursor: pointer;
-	position: relative;
-}
-
-/* 中身の進捗バー（JS側の表記ブレを考慮して両方のクラスに対応） */
-.progress-bar, .progressBar {
-	width: 0%;
-	height: 100%;
-	background: #00b000;
-	box-shadow: 0 0 8px #ffffff;
-	transition: width 0.1s linear;
+	background: #ff3333;
+	color: #000000;
+	text-shadow: none;
+	box-shadow: 0 0 10px #ff3333;
 }
 
 /* 疑似波形ビジュアライザー */
@@ -126,91 +105,126 @@
 .waveform-visualizer .bar {
 	width: 3px;
 	height: 3px;
-	background: #004400; /* 通常時は沈んでいる */
+	background: #004400;
 	transition: height 0.2s ease;
 }
 
-/* 再生中（playingクラス追加時）に個別の速度でピコピコ動く */
+/* 再生中のピコピコ動くアニメーション */
 .waveform-visualizer.playing .bar {
 	background: #ff0000;
 	box-shadow: 0 0 4px #ffffff;
 	animation: wave 0.5s ease infinite alternate;
 }
 
-/* 時間カウンターのスタイル */
-.time-counter {
-	font-size: 0.85rem;
-	color: #ffffff;
-	font-family: monospace; /* 数字の幅を揃える */
-	margin: 4px 0 8px 0;
-	letter-spacing: 0.05em;
-}
-
-.waveform-visualizer.playing .bar:nth-child(1) { animation-delay: 0.1s; animation-duration: 0.4s; }
-.waveform-visualizer.playing .bar:nth-child(2) { animation-delay: 0.3s; animation-duration: 0.6s; }
-.waveform-visualizer.playing .bar:nth-child(3) { animation-delay: 0.0s; animation-duration: 0.3s; }
-.waveform-visualizer.playing .bar:nth-child(4) { animation-delay: 0.4s; animation-duration: 0.5s; }
-.waveform-visualizer.playing .bar:nth-child(5) { animation-delay: 0.2s; animation-duration: 0.4s; }
+.waveform-visualizer.playing .bar:nth-child(1) { animation-delay: 0.1s; }
+.waveform-visualizer.playing .bar:nth-child(2) { animation-delay: 0.4s; }
+.waveform-visualizer.playing .bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-visualizer.playing .bar:nth-child(4) { animation-delay: 0.6s; }
+.waveform-visualizer.playing .bar:nth-child(5) { animation-delay: 0.3s; }
+.waveform-visualizer.playing .bar:nth-child(6) { animation-delay: 0.5s; }
+.waveform-visualizer.playing .bar:nth-child(7) { animation-delay: 0.1s; }
+.waveform-visualizer.playing .bar:nth-child(8) { animation-delay: 0.4s; }
+.waveform-visualizer.playing .bar:nth-child(9) { animation-delay: 0.2s; }
+.waveform-visualizer.playing .bar:nth-child(10) { animation-delay: 0.7s; }
+.waveform-visualizer.playing .bar:nth-child(11) { animation-delay: 0.3s; }
+.waveform-visualizer.playing .bar:nth-child(12) { animation-delay: 0.5s; }
 
 @keyframes wave {
 	0% { height: 3px; }
 	100% { height: 20px; }
 }
 
-/* ステータス位置調整 */
-.player-status {
-	display: inline-block;
+/* ステータスバー */
+.player-status-bar {
 	font-size: 0.8rem;
-	color: #888;
-	margin-left: 15px;
-	vertical-align: middle;
+	margin: 8px 0 4px 0;
+	font-family: inherit;
+	color: #888888;
+}
+.player-status-text.playing {
+	color: #ff0000;
+	font-weight: bold;
+	text-shadow: 0 0 4px #ff0000;
 }
 
-/* ★【新規追記】あまり主張しないダウンロードメニューのレイアウト設定 */
+/* タイムライン（プログレスバー） */
+.timeline-container {
+	margin: 8px 0;
+	width: 100%;
+}
+
+.progress-container-wrapper {
+	width: 100%;
+	height: 8px;
+	background: #222222;
+	border: 1px solid #333333;
+	cursor: pointer;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.progress-bar, .progressBar {
+	width: 0%;
+	height: 100%;
+	background: #ffff00;
+	box-shadow: 0 0 8px #ffff00;
+	transition: width 0.1s linear;
+}
+
+/* タイムカウンター */
+.time-counter {
+	font-size: 0.85rem;
+	color: #ffffff;
+	font-family: monospace;
+	margin: 4px 0 4px 0;
+	letter-spacing: 0.05em;
+}
+
+/* メタ情報とプルダウンメニューの配置定義 */
+.song-meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 8px;
+	font-size: 0.9rem;
+}
+
+.ver-select, .type-select, .dl-select {
+	background: #000000;
+	color: #00ff00;
+	border: 1px solid #00ff00;
+	padding: 4px 8px;
+	font-family: inherit;
+	font-size: 0.9rem;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.ver-select:disabled, .type-select:disabled {
+	color: #ffffff;
+	border-color: #004400;
+	cursor: not-allowed;
+	background: #050505;
+}
+
+/* ダウンロードメニューのコンテナ配置 */
 .download-menu-container {
 	display: inline-flex;
 	align-items: center;
-	gap: 5px;
-	margin-left: auto; /* 右端にそっと寄せる */
-}
-
-.dl-select {
-	background: #000;
-	color: #888; /* 文字色をトーンダウンして目立たせない */
-	border: 1px solid #333; /* 枠線も暗め */
-	font-family: inherit;
-	font-size: 0.75rem; /* 小さく配置 */
-	padding: 2px 4px;
-	cursor: pointer;
-}
-.dl-select:focus, .dl-select:hover {
-	color: #00ff00;
-	border-color: #00ff00;
-}
-/* 無効化（disabled）時の見た目 */
-.dl-select option:disabled {
-	color: #333;
-	background: #111;
+	gap: 6px;
+	margin-left: auto;
+	padding-left: 20px;
 }
 
 .dl-btn {
-	background: #000;
-	color: #888;
-	border: 1px solid #333;
-	font-family: inherit;
-	font-size: 0.75rem;
-	padding: 2px 8px;
+	background-color: #000000;
+	color: #00ff00;
+	border: 2px outset #00ff00;
+	padding: 4px 12px;
 	cursor: pointer;
-	transition: all 0.2s ease;
+	font-family: inherit;
 }
-.dl-btn:hover:not(:disabled) {
-	color: #000;
-	background: #00ff00;
-	border-color: #00ff00;
-	box-shadow: 0 0 5px #00ff00;
-}
-.dl-btn:disabled {
-	color: #444;
-	border-color: #222;
-	cursor: not-allowed;
+.dl-btn:active {
+	border: 2px inset #00ff00;
 }
