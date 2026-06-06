@@ -28,10 +28,12 @@ const DownloadHandler = {
 		const dlBtnEl = dlContainer.querySelector('.dl-btn');
 
 		/**
-		 * 現在の選択状態に応じて「VerすべてのトラックをDL」の有効・無効を切り替える内製関数
+		 * 現在の選択状態に応じて「VerすべてのトラックをDL」「プロジェクトすべての音源をDL」の有効・無効を切り替える内製関数
 		 */
 		const updateDlMenuStatus = () => {
 			const currentVer = song.versions[verSelectEl.value];
+			
+			// ① 選択中バージョンのトラック（タイプ）数が1つ以下の場合は、Ver一括DLを無効化
 			if (currentVer && currentVer.types.length <= 1) {
 				if (dlSelectEl.value === 'ver-all') {
 					dlSelectEl.value = 'single';
@@ -39,6 +41,16 @@ const DownloadHandler = {
 				dlSelectEl.options[1].disabled = true;
 			} else {
 				dlSelectEl.options[1].disabled = false;
+			}
+
+			// ② プロジェクト全体のバージョン数が1つ以下の場合は、プロジェクト一括DLも無効化
+			if (song.versions.length <= 1) {
+				if (dlSelectEl.value === 'proj-all') {
+					dlSelectEl.value = 'single';
+				}
+				dlSelectEl.options[2].disabled = true;
+			} else {
+				dlSelectEl.options[2].disabled = false;
 			}
 		};
 
