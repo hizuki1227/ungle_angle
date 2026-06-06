@@ -263,6 +263,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				statusEl.textContent = 'READY';
 			});
 
+			// ★【新規追記】外部ファイル化したダウンロード機構をここでドッキング
+			if (typeof DownloadHandler !== 'undefined') {
+				DownloadHandler.setup(songItem, song, verSelectEl, typeSelectEl);
+			}
+
 			musicListContainer.appendChild(songItem);
 		});
 	}

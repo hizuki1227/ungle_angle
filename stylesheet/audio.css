@@ -1,4 +1,9 @@
 /* --- 拡張プレイヤー・プログレスバー・波形アニメーションのスタイル追記 --- */
+.song-item {
+	/* ★各プロジェクト（曲単位の枠）同士の間隔をガッツリ広げる設定 */
+	margin-bottom: 45px; 
+}
+
 .custom-audio-player {
 	display: block; /* 横並びから縦並びのブロックレイアウトに変更 */
 	background: #111;
@@ -159,4 +164,53 @@
 	color: #888;
 	margin-left: 15px;
 	vertical-align: middle;
+}
+
+/* ★【新規追記】あまり主張しないダウンロードメニューのレイアウト設定 */
+.download-menu-container {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin-left: auto; /* 右端にそっと寄せる */
+}
+
+.dl-select {
+	background: #000;
+	color: #888; /* 文字色をトーンダウンして目立たせない */
+	border: 1px solid #333; /* 枠線も暗め */
+	font-family: inherit;
+	font-size: 0.75rem; /* 小さく配置 */
+	padding: 2px 4px;
+	cursor: pointer;
+}
+.dl-select:focus, .dl-select:hover {
+	color: #00ff00;
+	border-color: #00ff00;
+}
+/* 無効化（disabled）時の見た目 */
+.dl-select option:disabled {
+	color: #333;
+	background: #111;
+}
+
+.dl-btn {
+	background: #000;
+	color: #888;
+	border: 1px solid #333;
+	font-family: inherit;
+	font-size: 0.75rem;
+	padding: 2px 8px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.dl-btn:hover:not(:disabled) {
+	color: #000;
+	background: #00ff00;
+	border-color: #00ff00;
+	box-shadow: 0 0 5px #00ff00;
+}
+.dl-btn:disabled {
+	color: #444;
+	border-color: #222;
+	cursor: not-allowed;
 }
