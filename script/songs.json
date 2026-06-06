@@ -169,8 +169,7 @@
 				"ver":"v6.8.5",
 				"ver_comment": "イントロを創新し、ピアノの主張をかなり抑え、ベースをメインにした。\nイントロとアウトロでホワイトノイズを流した。意味はない。",
 				"types": [
-					{ "name": "Original Mix", "time": "01:31", "file": "source/sounds/work_no_6/6.8.5.m4a" },
-					{ "name": "Lead E.Pno", "time": "01:31", "file": "source/sounds/work_no_6/6.8.5_Lead E.Piano.m4a" }
+					{ "name": "Original Mix", "time": "01:28", "file": "source/sounds/work_no_6/6.8.5_final.m4a" },
 				]
 			}
 		]
