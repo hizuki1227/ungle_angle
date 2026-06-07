@@ -19,6 +19,13 @@
 				"types" :[
 					{ "name": "Lead E.Pno", "time": "01:16", "file": "source/sounds/work_no_13/13.0.1_[DEMO].m4a" }
 				]
+			},
+			{
+				"ver": "v13.0.2 [DEMO]",
+				"ver_comment": "イントロを少し修正、ピアノパートにサスティンとリバーブをつけた。\n装飾音も少し修正した",
+				"types" :[
+					{ "name": "Lead E.Pno", "time": "01:16", "file": "source/sounds/work_no_13/13.0.2_[DEMO].m4a" }
+				]
 			}
 		]
 	},
@@ -26,7 +33,7 @@
 	{
 		"id":"project-06",
 		"title":"Work No. 12",
-		"date": "2026/05/22",
+		"date": "2026/05/30",
 		"status":"cancel",
 		"project_comment": "リリースカットピアノを使いたいと想い始めた。しかし、キモいメロ、歌詞が思いつかなかったので早急に打ち切った。\n本当に聴くだけで恥ずかしくなる。",
 		"versions":[

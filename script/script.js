@@ -42,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		const lastVerIndex = song.versions.length - 1;
 		const defaultVer = song.versions[lastVerIndex];
 
+		// 【組み込み箇所①】7日未満（1週間以内）の新曲かどうかの判定ロジック
+		let isNewSong = false;
+		if (song.date) {
+			const songDate = new Date(song.date);
+			const currentDate = new Date();
+			
+			const diffTime = currentDate - songDate;
+			const diffDays = diffTime / (1000 * 60 * 60 * 24);
+			
+			if (diffDays >= 0 && diffDays < 7) {
+				isNewSong = true;
+			}
+		}
+
 		const projectComment = song.project_comment && song.project_comment.trim() !== "" 
 			? song.project_comment : "No comment.";
 
@@ -57,11 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const statusClass = song.status ? song.status.toLowerCase() : 'progress';
 
+		// 【組み込み箇所②】HTMLテンプレート内にNEWバッジを追加できるよう構造を調整
+		let newBadgeHTML = '';
+		if (isNewSong) {
+			newBadgeHTML = `<span class="new-badge">NEW</span>`;
+		}
+
 		// ★ボタンがズレる・はみ出る問題を解消するため、内部テキストを完全に無くしたピュアな構造に再生成
 		songItem.innerHTML = `
 			<div class="song-header">
 				<div class="song-title">
 					<span class="status-badge ${statusClass}"></span>
+					${newBadgeHTML}
 					<span class="title-text" style="font-size:1.6rem; color:#00ff00;">${song.title}</span>
 				</div>
 				<span class="song-date">ARCHIVE DATE: ${song.date}</span>
@@ -107,6 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				</div>
 			</div>
 
+			<div class="share-container">
+				<button class="share-btn">SHARE PROJECT</button>
+				<span class="share-notify">LINK COPIED!</span>
+			</div>
+
 			<div class="ver-comment-box">
 				<p class="comment-label">[SELECTED VERSION COMMENT]</p>
 				<p class="ver-comment-text comment-text"></p>
@@ -131,6 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		const progressBarEl = songItem.querySelector('.progress-bar');
 		const currentTimeValEl = songItem.querySelector('.current-time-val');
 		const durationTimeValEl = songItem.querySelector('.duration-time-val');
+
+		// 共有ボタンのDOM要素を取得
+		const shareBtnEl = songItem.querySelector('.share-btn');
+		const shareNotifyEl = songItem.querySelector('.share-notify');
 
 		/**
 		 * タイプメニュー（Track種別）の更新関数
@@ -234,8 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			const clickX = e.offsetX;
 			const duration = audioEl.duration;
 			if (duration > 0 && containerWidth > 0) {
-				const targetTime = (clickX / containerWidth) * duration;
-				audioEl.currentTime = targetTime;
+                const targetTime = (clickX / containerWidth) * duration;
+                audioEl.currentTime = targetTime;
 			}
 		});
 
@@ -270,6 +300,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			visualizerEl.classList.remove('playing');
 			statusEl.textContent = 'READY';
 			statusEl.classList.remove('playing');
+		});
+
+		// 【組み込み箇所④】共有ボタンのクリックイベントリスナー登録
+		shareBtnEl.addEventListener('click', () => {
+			const currentUrl = window.location.href;
+			navigator.clipboard.writeText(currentUrl)
+				.then(() => {
+					shareNotifyEl.classList.add('show');
+					setTimeout(() => {
+						shareNotifyEl.classList.remove('show');
+					}, 2000);
+				})
+				.catch(err => {
+					console.error('URLのコピーに失敗しました:', err);
+				});
 		});
 	}
 });

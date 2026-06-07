@@ -39,6 +39,25 @@ document.addEventListener('DOMContentLoaded', () => {
 				sessionStorage.setItem('dashboard_scroll_pos', window.scrollY);
 			});
 
+			// 【新規追加】7日未満（1週間以内）の新曲かどうかの判定ロジック
+			let isNewSong = false;
+			if (song.date) {
+				const songDate = new Date(song.date);
+				const currentDate = new Date(); // 現在日時（2026年6月7日）
+				
+				const diffTime = currentDate - songDate;
+				const diffDays = diffTime / (1000 * 60 * 60 * 24);
+				
+				if (diffDays >= 0 && diffDays < 7) {
+					isNewSong = true;
+				}
+			}
+
+			let newBadgeHTML = '';
+			if (isNewSong) {
+				newBadgeHTML = `<span class="new-badge">NEW</span>`;
+			}
+
 			const statusClass = song.status ? song.status.toLowerCase() : 'progress';
 			const projectComment = song.project_comment && song.project_comment.trim() !== "" 
 				? song.project_comment : "コメントなし";
@@ -46,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			card.innerHTML = `
 				<div class="card-header">
 					<span class="status-badge ${statusClass}"></span>
-					<h3 class="card-title">${song.title}</h3>
+					<h3 class="card-title">${newBadgeHTML}${song.title}</h3>
 				</div>
 				<div class="card-meta">
 					<span class="card-date">DATE: ${song.date}</span>
