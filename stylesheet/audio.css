@@ -231,8 +231,14 @@
 
 /* 画面幅が小さいときは、基準の文字サイズを小さくする */
 @media (max-width: 768px) {
-html {
-    font-size: 14px; /* 全体のremがこれに比例して縮む */
+	html {
+    	font-size: 14px; /* 全体のremがこれに比例して縮む */
+	}
+}
+
+@media (max-width: 550px) {
+	html {
+		font-size: 12px;
 	}
 }
 
