@@ -10,21 +10,21 @@
 				"ver": "v13.0.0 [DEMO]",
 				"ver_comment": "初期バージョン。\n正直、イントロはそこそこ満足してるけど、僕は歌詞が壊滅的に書けないせいでメロが思い浮かばない。このままだとまた打ち切りの予感。なんとかしてコレは完成させたい。\nそもそもの話、デモ版の時点でボーカルパートさえピアノなので歌詞がつくのかすら怪しい。",
 				"types": [
-					{ "name": "Lead E.Pno", "time": "01:08", "file": "source/sounds/work_no_13/13.0.0_[DEMO].m4a" }
+					{ "name": "Original Mix", "time": "01:08", "file": "source/sounds/work_no_13/13.0.0_[DEMO].m4a" }
 				]
 			},
 			{
 				"ver": "v13.0.1 [DEMO]",
 				"ver_comment": "イントロを少し追加、ベロシティーを少し上げた。\nあと若干コンプレッサーとリミッターを掛けて音圧を上げた。いや、上げすぎたかも。。。",
 				"types" :[
-					{ "name": "Lead E.Pno", "time": "01:16", "file": "source/sounds/work_no_13/13.0.1_[DEMO].m4a" }
+					{ "name": "Original Mix", "time": "01:16", "file": "source/sounds/work_no_13/13.0.1_[DEMO].m4a" }
 				]
 			},
 			{
 				"ver": "v13.0.2 [DEMO]",
 				"ver_comment": "イントロを少し修正、ピアノパートにサスティンとリバーブをつけた。\n装飾音も少し修正した",
 				"types" :[
-					{ "name": "Lead E.Pno", "time": "01:16", "file": "source/sounds/work_no_13/13.0.2_[DEMO].m4a" }
+					{ "name": "Original Mix", "time": "01:16", "file": "source/sounds/work_no_13/13.0.2_[DEMO].m4a" }
 				]
 			}
 		]
@@ -51,15 +51,22 @@
 	{
 		"id":"project-05",
 		"title":"Work No. 11",
-		"date": "2026/04/30",
-		"status": "cancel",
-		"project_comment": "今回はメロディから先に作ったが完全なる打ち切り。\n途中でやる気が失せて、放り投げた。おそらく歌詞がつくはずだったが何も考えていない。\nWork Noでも欠番があるがそれは全部ボツにした作品だ。",
+		"date": "2026/06/09",
+		"status": "progress",
+		"project_comment": "今回はメロディから先に作りコードは後付した。\nおそらく歌詞がつくはずだったが何も考えていない。\n",
 		"versions":[
 			{
 				"ver": "v11.0.0 [DEMO]",
 				"ver_comment": "初期バージョン。\n特に言うことはない。",
 				"types": [
-					{ "name": "Original Mix", "time": "00:42", "file": "source/sounds/work_no_11/11.0.0.m4a" }
+					{ "name": "Original Mix", "time": "00:42", "file": "source/sounds/work_no_11/11.0.0_[DEMO].m4a" }
+				]
+			},
+			{
+				"ver": "v11.1.0 [DEMO]",
+				"ver_comment": "少しコード進行を変え、ベースラインを追加してみた。それと歌詞をつけるのはやめることにした。\nやっぱり僕はクロマチック進行と、モーダルインターチェンジが好きな気がした。\n半音上昇時にコードを何にすれば良いのかが分からない。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:46", "file": "source/sounds/work_no_11/11.1.0_[DEMO].m4a" }
 				]
 			}
 		]
