@@ -68,6 +68,13 @@
 				"types": [
 					{ "name": "Original Mix", "time": "00:46", "file": "source/sounds/work_no_11/11.1.0_[DEMO].m4a" }
 				]
+			},
+			{
+				"ver": "v11.1.2 [DEMO]",
+				"ver_comment": "また少しだけコード進行を変えた。特に、王道進行を一部取り入れたら一気に曲っぽくなった。やっぱり、どこかに王道進行を入れたほうが良いかもしれない。\n今のところは、BメロからCメロまでっていう意味不明なパートしか存在していないから早くほかのパートも作りたい。",
+				"types": [
+					{ "name": "Original Mix", "time": "00:46", "file": "source/sounds/work_no_11/11.1.2_[DEMO].m4a" }
+				]
 			}
 		]
 	},
