@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const statusClass = song.status ? song.status.toLowerCase() : 'progress';
 			const projectComment = song.project_comment && song.project_comment.trim() !== "" 
-				? song.project_comment : "コメントなし";
+				? song.project_comment : "No comment";
 
 			card.innerHTML = `
 				<div class="card-header">

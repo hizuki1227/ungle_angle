@@ -55,36 +55,6 @@ main { max-width: 600px; margin: 0 auto; }
 	overflow-wrap: anywhere;
 }
 
-/* 詳細表示用のコンテナ */
-.song-item-detail {
-	padding: 5px 0;
-}
-.song-header {
-	display: flex;
-	justify-content: space-between;
-	font-weight: bold;
-	margin-bottom: 12px;
-}
-.song-date {
-	font-size: 0.8rem;
-	color: #888888;
-}
-.song-meta {
-	margin-bottom: 8px;
-	font-size: 0.9rem;
-}
-.ver-select, .type-select, .dl-select {
-	background: #000;
-	color: #00ff00;
-	border: 1px solid #00ff00;
-	font-family: inherit;
-	padding: 2px;
-	margin-right: 10px;
-}
-.song-audio {
-	width: 100%;
-	margin-top: 5px;
-}
 footer { text-align: center; margin-top: 30px; }
 button, .dl-btn { background-color: #000; color: #00ff00; border: 1px solid #00ff00; padding: 5px 15px; cursor: pointer; font-family: inherit; }
 button:active, .dl-btn:active { border: 1px inset #00ff00; }
@@ -122,10 +92,20 @@ button:active, .dl-btn:active { border: 1px inset #00ff00; }
 	transition: all 0.2s ease;
 }
 
+.card-title {
+	margin: 0;
+	font-size: 1.5rem;
+	color: #009700;
+	font-family: 'Courier New', Courier, monospace;
+}
+
 .project-card:hover {
 	background: #152215;
 	border-color: #ffffff;
 	box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+.project-card:hover .card-title {
+	color: #00ff00;
 }
 
 .card-header {
@@ -133,17 +113,6 @@ button:active, .dl-btn:active { border: 1px inset #00ff00; }
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 6px;
-}
-
-.card-title {
-	margin: 0;
-	font-size: 1.5rem;
-	color: #00ff00;
-	font-family: 'Courier New', Courier, monospace;
-}
-
-.project-card:hover .card-title {
-	color: #ffffff;
 }
 
 .card-meta {

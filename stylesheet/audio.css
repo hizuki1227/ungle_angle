@@ -180,7 +180,20 @@ button {
 	letter-spacing: 0.05em;
 }
 
-/* メタ情報とプルダウンメニューの配置定義 */
+/* 詳細表示用のコンテナ */
+.song-item-detail {
+	padding: 5px 0;
+}
+.song-header {
+	display: flex;
+	justify-content: space-between;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+.song-date {
+	font-size: 0.8rem;
+	color: #888888;
+}
 .song-meta {
 	display: flex;
 	align-items: center;
@@ -188,6 +201,16 @@ button {
 	gap: 12px;
 	margin-bottom: 8px;
 	font-size: 0.9rem;
+}
+.song-audio {
+	width: 100%;
+	margin-top: 5px;
+}
+
+
+/* 再生時間 */
+.song-time-display {
+	color: #888888;
 }
 
 .ver-select, .type-select, .dl-select {
@@ -213,8 +236,7 @@ button {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
-	margin-left: auto;
-	padding-left: 20px;
+	margin-right: auto;
 }
 
 /* リンク共有ボタン */
