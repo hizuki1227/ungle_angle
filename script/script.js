@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			</div>
 
 			<div class="share-container">
-				<button class="share-btn">SHARE PROJECT</button>
+				<button id="share_this">SHARE PROJECT</button>
 				<span class="share-notify">LINK COPIED!</span>
 			</div>
 
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const durationTimeValEl = songItem.querySelector('.duration-time-val');
 
 		// 共有ボタンのDOM要素を取得
-		const shareBtnEl = songItem.querySelector('.share-btn');
+		const shareBtnEl = songItem.querySelector('#share_this');
 		const shareNotifyEl = songItem.querySelector('.share-notify');
 
 		/**

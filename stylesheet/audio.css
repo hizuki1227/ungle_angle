@@ -33,7 +33,7 @@
 }
 
 /* 再生ボタン：ネオングリーン枠 */
-.play-btn {
+button {
 	border: 1px solid #00ff00;
 }
 
@@ -217,16 +217,20 @@
 	padding-left: 20px;
 }
 
-.dl-btn {
-	background-color: #000000;
-	color: #00ff00;
-	border: 2px outset #00ff00;
-	padding: 4px 12px;
-	cursor: pointer;
-	font-family: inherit;
+/* リンク共有ボタン */
+.share-container {
+	margin-top: 0.75rem;
 }
-.dl-btn:active {
-	border: 2px inset #00ff00;
+
+.share-notify {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+
+	color: #bbbbbb;
+} .share-notify.show {
+	visibility: visible;
+	opacity: 1;
 }
 
 /* 画面幅が小さいときは、基準の文字サイズを小さくする */
