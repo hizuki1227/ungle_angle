@@ -224,7 +224,7 @@ button {
 	box-sizing: border-box;
 }
 
-.ver-select:disabled, .type-select:disabled {
+.ver-select:disabled, .type-select:disabled, .dl-btn.loading {
 	color: #ffffff;
 	border-color: #004400;
 	cursor: not-allowed;
@@ -241,12 +241,6 @@ button {
 .dl-btn {
 	width: 8rem;
 }
-.dl-btn.loading {
-	color: #888888;
-	border-color: #888888;
-	cursor: not-allowed;
-}
-
 
 /* リンク共有ボタン */
 .share-container {
