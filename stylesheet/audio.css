@@ -238,6 +238,15 @@ button {
 	gap: 6px;
 	margin-right: auto;
 }
+.dl-btn {
+	width: 8rem;
+}
+.dl-btn.loading {
+	color: #888888;
+	border-color: #888888;
+	cursor: not-allowed;
+}
+
 
 /* リンク共有ボタン */
 .share-container {

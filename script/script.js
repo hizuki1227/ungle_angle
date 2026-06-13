@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					${newBadgeHTML}
 					<span class="title-text" style="font-size:1.6rem; color:#00ff00;">${song.title}</span>
 				</div>
-				<span class="song-date">ARCHIVE DATE: ${song.date}</span>
+				<span class="song-date">LAST UPDATED: ${song.date}</span>
 			</div>
 			
 			<div class="project-comment-box">
