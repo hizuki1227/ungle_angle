@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			<div class="share-container">
 				<button id="share_this">SHARE PROJECT</button>
-				<span class="share-notify">LINK COPIED!</span>
+				<span class="share-notify">LINK COPIED</span>
 			</div>
 
 			<div class="ver-comment-box">

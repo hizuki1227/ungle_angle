@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					<h3 class="card-title">${newBadgeHTML}${song.title}</h3>
 				</div>
 				<div class="card-meta">
-					<span class="card-date">DATE: ${song.date}</span>
+					<span class="card-date">LAST UPDATED: ${song.date}</span>
 					<span class="card-vers">VERSIONS: ${song.versions.length}</span>
 				</div>
 				<p class="card-comment-preview">${projectComment}</p>

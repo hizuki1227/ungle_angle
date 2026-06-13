@@ -99,12 +99,12 @@
 	{
 		"id": "project-04",
 		"title": "Work No. 9",
-		"date": "2026/04/08",
+		"date": "2026/6/13",
 		"status": "complete",
 		"project_comment": "ピアノを弾いていたときに、Ⅰ→Ⅶm7→Ⅳ→Ⅳmが気に入り、そこからできた曲。\nこの曲は歌詞からメロを作ったから、メロにもそれなりの意味がある。。。はず？\n伴奏は、前奏、Aメロ1、Aメロ2、Bメロ、サビ、間奏、後奏でそれぞれ別だが、1番と2番は使いまわしだ。",
 		"versions": [
 			{
-				"ver": "v9.0.0 [DEMO1]",
+				"ver": "v9.0.0 [DEMO]",
 				"ver_comment": "初期バージョンでは、コード進行をすべて使いまわしていた。まぁ合わない部分もあったが、すべて使いまわしで作ってしまったがゆえに平坦なメロになったのかもね。",
 				"types": [
 					{ "name": "Original Mix", "time": "01:45", "file": "source/sounds/work_no_9/9.0.0_[DEMO].m4a" },
@@ -112,11 +112,11 @@
 				]
 			},
 			{
-				"ver": "v9.1.0 [DEMO2]",
+				"ver": "v9.1.0 [DEMO]",
 				"ver_comment": "DEMO1 of the full version. 2番では少しメロが1番と違ったりする。\nコード進行は、相変わらずの使いまわし。",
 				"types": [
-					{ "name": "Original Mix", "time": "03:10", "file": "source/sounds/work_no_9/9.1.0_[DEMO2].m4a" },
-					{ "name": "Lead E.Pno", "time": "03:10", "file": "source/sounds/work_no_9/9.1.0_Lead E.Piano_[DEMO2].m4a" }
+					{ "name": "Original Mix", "time": "03:10", "file": "source/sounds/work_no_9/9.1.0_[DEMO].m4a" },
+					{ "name": "Lead E.Pno", "time": "03:10", "file": "source/sounds/work_no_9/9.1.0_Lead E.Piano_[DEMO].m4a" }
 				]
 			},
 			{
@@ -130,7 +130,7 @@
 			},
 			{
 				"ver": "v9.5.0",
-				"ver_comment": "これまでは、いきなりアウトロに行く不自然さがあったがここでようやくアーメン終止？を入れてアウトロへ繋げた。",
+				"ver_comment": "これまでは、いきなりアウトロに行く不自然さがあったがここでようやくアーメン終止？を入れてアウトロへ繋げた。\nそれと、サビでクロマチック進行(dim系)をかなり取り入れた。",
 				"types": [
 					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.0.m4a" },
 					{ "name": "Lead E.Pno", "time": "03:19", "file": "source/sounds/work_no_9/9.5.0_Lead E.Piano.m4a" },
@@ -139,18 +139,27 @@
 			},
 			{
 				"ver": "v9.5.7",
-				"ver_comment": "ようやくまともにミキシングをした。これまでのバージョンと比べると、尖っていて耳がキンキンするピアノがマイルドになった。\nやっぱり、アーメン終止は気に食わないのでsus4とadd9でなんとか誤魔化した。これでいいのかな？",
+				"ver_comment": "ようやくまともにミキシングをした。これまでのバージョンと比べると、尖っていて耳がキンキンするピアノがマイルドになった。\nやっぱり、アーメン終止は気に食わないのでsus4とadd9でなんとか誤魔化した。これでいいのかな？\nサビのクロマチック進行はキモすぎたので消し、一部augとdimを入れた。",
 				"types": [
-					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_final_5.m4a" },
-					{ "name": "Lead E.Pno", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_Lead E.Piano_final_5.m4a" },
-					{ "name": "Backing Track", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_Backing Track_final_5 1.m4a" }
+					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7.m4a" },
+					{ "name": "Lead E.Pno", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_Lead E.Piano.m4a" },
+					{ "name": "Backing Track", "time": "03:19", "file": "source/sounds/work_no_9/9.5.7_Backing Track.m4a" }
 				]
 			},
 			{
 				"ver": "v9.5.8",
-				"ver_comment": "一応は最終バージョン。\n9.5.7との違いは、ボーカルの声質と、一部のフレーズの歌い方を変更した。\nようやくミキシングの必要性が分かった気がする。今ままでCompressorすら知らなかったし。。。",
+				"ver_comment": "9.5.7との違いは、ボーカルの声質と、一部のフレーズの歌い方を変更した。\nようやくミキシングの必要性が分かった気がする。今ままでCompressorすら知らなかったし。。。",
 				"types": [
 					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.5.8.m4a" }
+				]
+			},
+			{
+				"ver": "v9.6.0",
+				"ver_comment": "最終バージョン。\nラスサビからアウトロに入るときに余韻を持たせたかったので、1拍分長くした。\nラスサビの2回繰り返すフレーズのコード進行を\nⅣ→Ⅳadd9/Ⅴ→Ⅳadd9→Ⅴ→Ⅰから、\nⅣ→Ⅴsus4→Ⅵ→Ⅲ7→Ⅳadd9→Ⅴ→Ⅰ\nのように一度Aマイナーキーへ焦らしてCに着地させた。最近Ⅲ7がかなり気に入ってる。Ⅴsus4じゃなくてⅤ7(omit 3)でもよかったかも。Ⅴ7って3度が邪魔な気がする。",
+				"types": [
+					{ "name": "Original Mix", "time": "03:19", "file": "source/sounds/work_no_9/9.6.0.m4a" },
+					{ "name": "Lead E.Pno", "time": "03:19", "file": "source/sounds/work_no_9/9.6.0_Lead E.Piano.m4a" },
+					{ "name": "Backing Track", "time": "03:19", "file": "source/sounds/work_no_9/9.6.0_Backing Track.m4a" }
 				]
 			}
 		]
