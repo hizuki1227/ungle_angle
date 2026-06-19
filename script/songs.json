@@ -394,7 +394,7 @@
     {
         "id": "project-02",
         "title": "Work No. 2",
-        "date": "2026/03/10",
+        "date": "2026/06/20",
         "status": "complete",
         "project_comment": "ギター、ベース、ピアノ、シンセをとりあえずぶち込んで作ってみた。\nコード進行から先に制作したので、メロに特に意味はない。",
         "versions": [
@@ -438,7 +438,18 @@
                     {
                         "name": "Original Mix",
                         "time": "00:25",
-                        "file": "source/sounds/work_no_2/2.10.1_final_2.m4a"
+                        "file": "source/sounds/work_no_2/2.10.1.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v2.11.0",
+                "ver_comment": "・主旋律のレイヤーを１つから２つに変更した。\n・バッキングピアノを少し強調。\n・ギターのEQを調整。\n正直前回で最後のバージョンにしようと思っていたが、Vital Synthesizerを導入し、試してみたくなった。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "00:25",
+                        "file": "source/sounds/work_no_2/2.11.0.m4a"
                     }
                 ]
             }
