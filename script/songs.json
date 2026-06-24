@@ -2,7 +2,7 @@
     {
         "id": "project-08",
         "title": "Work No. 14",
-        "date": "2026/06/10",
+        "date": "2026/06/24",
         "status": "progress",
         "project_comment": "最近っぽい曲を作りたいなと思って。",
         "versions": [
@@ -14,6 +14,17 @@
                         "name": "Original Mix",
                         "time": "00:14",
                         "file": "source/sounds/work_no_14/14.0.0_[DEMO].m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v14.1.0 [DEMO]",
+                "ver_comment": "サビの後半を大幅に変更。\nコンセプト未定なので停滞気味。\nリリースカットピアノを使った。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "00:19",
+                        "file": "source/sounds/work_no_14/14.1.0_[DEMO].m4a"
                     }
                 ]
             }
