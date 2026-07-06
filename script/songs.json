@@ -29,13 +29,13 @@
                 ]
             },
             {
-                "ver": "v16.2.1 [DEMO]",
+                "ver": "v16.2.2 [DEMO]",
                 "ver_comment": "Aメロに入った。楽曲の構成は、先程のクローバーグローバーを参考にしようと思う。\n出だしをオクターブで歌わせた。\nドラム、ギター、ベースがあるだけでだいぶそれっぽい。それ以外にもギターのリフ？的なやつをテキトーに入れた。",
                 "types": [
                     {
                         "name": "Original Mix",
-                        "time": "01:13",
-                        "file": "source/sounds/work_no_16/16.2.1_[DEMO].m4a"
+                        "time": "01:11",
+                        "file": "source/sounds/work_no_16/16.2.2_[DEMO].m4a"
                     }
                 ]
             }
