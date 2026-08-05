@@ -1,41 +1,172 @@
 [
     {
-        "id": "project-10",
-        "title": "Work No. 16",
+        "id": "project-12",
+        "title": "Work No. 12",
+        "date": "2026/07/15",
+        "status": "complete",
+        "project_comment": "作詞の段階である程度どんな曲にするかを決めた。今回はオブリガートや、ギター、サブメロ、リズム、色々無ことにチャレンジした。また、ベースのルート引きを辞めて少し、ベースラインにも若干のメロを入れた。",
+        "versions": [
+            {
+                "ver": "v12.10.0 [DEMO]",
+                "ver_comment": "歌い出しがなにかに似てると思ったらしっかりと、AI - Storyをパクリ気味だった。でも、この感じには満足しているのでどうにかしてパクリを回避せねば。。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "00:28",
+                        "file": "source/sounds/Work No. 12/12.10.0_Demo.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v12.11.1 [DEMO]",
+                "ver_comment": "歌い出しの意味不明なレイヤーを消した。\nグルーブ感を出すために繰り返しを多用した。\nオブリガートを入れた。\n楽器を入れすぎないようにした。\n歌い出しのボーカルにFlangerをかけた。\nイントロはそのまま歌い出しを使いまわした。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "01:59",
+                        "file": "source/sounds/Work No. 12/12.11.1_Demo.m4a"
+                    },
+                    {
+                        "name": "Lead Chiptune",
+                        "time": "01:59",
+                        "file": "source/sounds/Work No. 12/12.11.1_Lead_Demo.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v12.12.0 [DEMO]",
+                "ver_comment": "ライザーエフェクトを追加。\nボーカルの音量を調整。\nオブリガートを修正。\nピアノのリズムを修正。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "01:44",
+                        "file": "source/sounds/Work No. 12/12.12.0_Demo.m4a"
+                    },
+                    {
+                        "name": "Backing Track",
+                        "time": "01:44",
+                        "file": "source/sounds/Work No. 12/12.12.0_Inst_Demo.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v12.15.1 ",
+                "ver_comment": "Pass",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "01:55",
+                        "file": "source/sounds/Work No. 12/12.15.1.m4a"
+                    },
+                    {
+                        "name": "Lead Chiptune",
+                        "time": "01:55",
+                        "file": "source/sounds/Work No. 12/12.15.1_Lead.m4a"
+                    },
+                    {
+                        "name": "Backing Track",
+                        "time": "01:55",
+                        "file": "source/sounds/Work No. 12/12.15.1_Inst.m4a"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "project-11",
+        "title": "Work No. 11",
         "date": "2026/07/06",
-        "status": "progress",
+        "status": "cancel",
         "project_comment": "自動車学校がクソっていう気持ちを歌った。\n今回は作詞からして、鼻歌を録音し作った。\nまた、今回の作品はクローバーグローバーというバンドの流星群という曲を意識して作った。\nイントロが何かの曲に似てる気がするけど、何の曲かは分からない。誰か教えてほしい。",
         "versions": [
             {
-                "ver": "v16.0.1 [DEMO]",
+                "ver": "v16.0.0 [DEMO]",
                 "ver_comment": "今回は少しロック調の曲を作りたいと思い出だしからギターを入れた。\nコード進行はいつものやつ。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:37",
-                        "file": "source/sounds/work_no_16/16.0.1_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 11/11.0.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v16.1.0 [DEMO]",
+                "ver": "v16.2.0 [DEMO]",
                 "ver_comment": "Garagebandデフォルトのしょぼいギター音源から、UI Standard Guitarを導入した。また、出だしからキックを４つ打ちで入れた。\nカッティング奏法やオクターブ奏法、チョーキングなど様々な奏法が演奏できるようになったので、ちょっと楽しい。\nなので、今回はカッティングをそこそこ取り入れた曲にする。しかし、僕は奏法なんて全く分からないので、勘でまずは作ってみることにした。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:43",
-                        "file": "source/sounds/work_no_16/16.1.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 11/11.2.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v16.2.2 [DEMO]",
+                "ver": "v16.3.0 [DEMO]",
                 "ver_comment": "Aメロに入った。楽曲の構成は、先程のクローバーグローバーを参考にしようと思う。\n出だしをオクターブで歌わせた。\nドラム、ギター、ベースがあるだけでだいぶそれっぽい。それ以外にもギターのリフ？的なやつをテキトーに入れた。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:11",
-                        "file": "source/sounds/work_no_16/16.2.2_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 11/11.3.0_Demo.m4a"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "project-10",
+        "title": "Work No. 10",
+        "date": "2026/07/03",
+        "status": "complete",
+        "project_comment": "今回は完全なるメロ先で、コード進行は後付。友人にプレゼントした曲なので、歌詞が公序良俗に反するので、AI生成させたそれっぽいやつに置き換えた。\nまた、いつもはDAWのピアノロールと向き合ってメロディを考えていたが、今回のメロディはある程度ピアノで弾いて考えてそこから修正していった。",
+        "versions":[
+            {
+                "ver": "v10.1.0 [DEMO]",
+                "ver_comment": "初期バージョン。シンセを入れようと思って、Vitalでシンセをつけたらキモくなった。即不採用。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "01:05",
+                        "file": "source/sounds/Work No. 10/10.1.0_Demo.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v10.1.5 [DEMO]",
+                "ver_comment": "前のバージョンから不自然な部分を修正し、ベースラインも少し変更した。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "01:17",
+                        "file": "source/sounds/Work No. 10/10.1.5_Demo.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v10.4.1",
+                "ver_comment": "完成品。相変わらず僕の大好きなクロマチックベース。BメロからCメロに繋がる部分をこだわった。\nリリースカットピアノを主体にし、Cメロ直前までは高音をカットし、一気に解放。Orangestarさんのピアノを意識しようと思ったけど、全然違った。。",
+                "types": [
+                    {
+                        "name": "Lead Chiptune",
+                        "time": "01:36",
+                        "file": "source/sounds/Work No. 10/10.4.1_Lead.m4a"
+                    },
+                    {
+                        "name": "Backing Track",
+                        "time": "01:36",
+                        "file": "source/sounds/Work No. 10/10.4.1_Inst.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v10.10.0",
+                "ver_comment": "完成品のv10.4.1の歌詞置き換えバージョン。",
+                "types": [
+                    {
+                        "name": "Original Mix",
+                        "time": "01:33",
+                        "file": "source/sounds/Work No. 10/10.10.0.m4a"
                     }
                 ]
             }
@@ -43,30 +174,30 @@
     },
     {
         "id": "project-09",
-        "title": "Work No. 14",
+        "title": "Work No. 9",
         "date": "2026/06/24",
-        "status": "progress",
+        "status": "cancel",
         "project_comment": "最近っぽい曲を作りたいなと思って。",
         "versions": [
             {
-                "ver": "v14.0.0 [DEMO]",
+                "ver": "v4.0.0 [DEMO]",
                 "ver_comment": "サビらへんから作った。まだ完全なるプロトタイプで大幅変更もありえる。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:14",
-                        "file": "source/sounds/work_no_14/14.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 9/9.0.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v14.1.0 [DEMO]",
+                "ver": "v4.1.0 [DEMO]",
                 "ver_comment": "サビの後半を大幅に変更。\nコンセプト未定なので停滞気味。\nリリースカットピアノを使った。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:19",
-                        "file": "source/sounds/work_no_14/14.1.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 9/9.1.0_Demo.m4a"
                     }
                 ]
             }
@@ -74,41 +205,52 @@
     },
     {
         "id": "project-08",
-        "title": "Work No. 13",
+        "title": "Work No. 8",
         "date": "2026/06/07",
-        "status": "progress",
+        "status": "cancel",
         "project_comment": "とりあえずまともなイントロを作ろうと思って、始めた。",
         "versions": [
             {
-                "ver": "v13.0.0 [DEMO]",
+                "ver": "v8.0.0 [DEMO]",
                 "ver_comment": "初期バージョン。\n正直、イントロはそこそこ満足してるけど、僕は歌詞が壊滅的に書けないせいでメロが思い浮かばない。このままだとまた打ち切りの予感。なんとかしてコレは完成させたい。\nそもそもの話、デモ版の時点でボーカルパートさえピアノなので歌詞がつくのかすら怪しい。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:08",
-                        "file": "source/sounds/work_no_13/13.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 8/8.0.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v13.0.1 [DEMO]",
+                "ver": "v8.0.1 [DEMO]",
                 "ver_comment": "イントロを少し追加、ベロシティーを少し上げた。\nあと若干コンプレッサーとリミッターを掛けて音圧を上げた。いや、上げすぎたかも。。。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:16",
-                        "file": "source/sounds/work_no_13/13.0.1_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 8/8.0.1_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v13.0.2 [DEMO]",
+                "ver": "v8.0.2 [DEMO]",
                 "ver_comment": "イントロを少し修正、ピアノパートにサスティンとリバーブをつけた。\n装飾音も少し修正した",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:16",
-                        "file": "source/sounds/work_no_13/13.0.2_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 8/8.0.2_Demo.m4a"
+                    }
+                ]
+            },
+            {
+                "ver": "v8.1.0 [DEMO]",
+                "ver_comment": "イントロを少し修正。メロディーを排除した。何も思い浮かばない。ボツ決定。",
+                "types": [
+                    {
+                        "name": "Backing Track",
+                        "time": "01:14",
+                        "file": "source/sounds/Work No. 8/8.1.0_Inst_Demo.m4a"
                     }
                 ]
             }
@@ -116,19 +258,19 @@
     },
     {
         "id": "project-07",
-        "title": "Work No. 12",
+        "title": "Work No. 7",
         "date": "2026/05/30",
         "status": "cancel",
         "project_comment": "リリースカットピアノを使いたいと想い始めた。しかし、キモいメロ、歌詞が思いつかなかったので早急に打ち切った。\n本当に聴くだけで恥ずかしくなる。",
         "versions": [
             {
-                "ver": "v12.0.0 [DEMO]",
+                "ver": "v7.0.0 [DEMO]",
                 "ver_comment": "最初にして最後のバージョン。\n今聞いたらメロがキモい。本当に聞きたくない。ダサいリリースカットピアノってあるんだね。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:47",
-                        "file": "source/sounds/work_no_12/12.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 7/7.0.0_Demo.m4a"
                     }
                 ]
             }
@@ -136,62 +278,62 @@
     },
     {
         "id": "project-06",
-        "title": "Work No. 11",
+        "title": "Work No. 6",
         "date": "2026/06/14",
-        "status": "progress",
+        "status": "cancel",
         "project_comment": "今回はメロディから先に作りコードは後付した。\nおそらく歌詞がつくはずだったが何も考えていない。\n",
         "versions": [
             {
-                "ver": "v11.0.0 [DEMO]",
+                "ver": "v6.0.0 [DEMO]",
                 "ver_comment": "初期バージョン。\n特に言うことはない。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:42",
-                        "file": "source/sounds/work_no_11/11.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 6/6.0.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v11.1.0 [DEMO]",
+                "ver": "v6.1.0 [DEMO]",
                 "ver_comment": "少しコード進行を変え、ベースラインを追加してみた。それと歌詞をつけるのはやめることにした。\nやっぱり僕はクロマチック進行と、モーダルインターチェンジが好きな気がした。\n半音上昇時にコードを何にすれば良いのかが分からない。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:46",
-                        "file": "source/sounds/work_no_11/11.1.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 6/6.1.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v11.1.2 [DEMO]",
+                "ver": "v6.1.2 [DEMO]",
                 "ver_comment": "また少しだけコード進行を変えた。特に、王道進行を一部取り入れたら一気に曲っぽくなった。やっぱり、どこかに王道進行を入れたほうが良いかもしれない。\n今のところは、BメロからCメロまでっていう意味不明なパートしか存在していないから早くほかのパートも作りたい。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:46",
-                        "file": "source/sounds/work_no_11/11.1.2_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 6/6.1.2_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v11.2.0 [DEMO]",
+                "ver": "v6.2.0 [DEMO]",
                 "ver_comment": "ようやく歌詞が付いた。もともとつけるつもりはあったが、全く思いつかず放置していた。\n一歩前進できたことは嬉しい。歌詞がついたことに伴い、キー、そしてメロディ大幅に変更した。VoiSonaのChis-Aは初音ミクみたいに音域が広くないので、無理に声を出すと死にかけのような声になるのはなんとかしたい。\n初音ミクの声が苦手だったが最近はだいぶ慣れてむしろ欲しいくらいだ。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:46",
-                        "file": "source/sounds/work_no_11/11.2.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 6/6.2.0_Demo.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "00:46",
-                        "file": "source/sounds/work_no_11/11.2.0_Lead E.Piano_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 6/6.2.0_Lead_Demo.m4a"
                     },
                     {
                         "name": "Backing Track",
                         "time": "00:46",
-                        "file": "source/sounds/work_no_11/11.2.0_Backing Track_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 6/6.2.0_Inst_Demo.m4a"
                     }
                 ]
             }
@@ -199,19 +341,19 @@
     },
     {
         "id": "project-05",
-        "title": "Work No. 10",
+        "title": "Work No. 5",
         "date": "2026/6/24",
         "status": "cancel",
-        "project_comment": "長らく空席だったWork No. 10をついにアップロードした。正直キショくて聴きたくないれけど、仕方ない。\n少しイントロがWork No. 9に引っ張られてる。\nNo. 9っぽ曲を作りたいというコンセプトだったが一瞬で辞めた。",
+        "project_comment": "長らく空席だったWork No. 5をついにアップロードした。正直キショくて聴きたくないれけど、仕方ない。\n少しイントロがWork No. 4に引っ張られてる。\nNo. 9っぽ曲を作りたいというコンセプトだったが一瞬で辞めた。",
         "versions": [
             {
-                "ver": "v10.0.0 [DEMO]",
+                "ver": "v5.0.0 [DEMO]",
                 "ver_comment": "まずメロがキモすぎた。歌詞を入れるつもりは合ったが何をテーマにした曲なのか、アップテンポなのか、ラブソングなのかなどを全て置き去りにして作ったせいで何も進まなかった。\nデモ版それもAメロすら完成せずにお蔵入り。\n久々機に聴いたらイントロだけは気に入ったかも。いやどうだろう。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:01",
-                        "file": "source/sounds/work_no_10/10.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 5/5.0.0_Demo.m4a"
                     }
                 ]
             }
@@ -219,135 +361,135 @@
     },
     {
         "id": "project-04",
-        "title": "Work No. 9",
+        "title": "Work No. 4",
         "date": "2026/6/13",
         "status": "complete",
         "project_comment": "ピアノを弾いていたときに、Ⅰ→Ⅶm7→Ⅳ→Ⅳmが気に入って、そこからできた曲。\nこの曲は歌詞からメロを作ったから、メロにもそれなりの意味がある。。。はず？\n伴奏は、前奏、Aメロ1、Aメロ2、Bメロ、サビ、間奏、後奏でそれぞれ別だが、1番と2番は使いまわした。",
         "versions": [
             {
-                "ver": "v9.0.0 [DEMO]",
+                "ver": "v4.0.0 [DEMO]",
                 "ver_comment": "初期バージョンでは、コード進行をすべて使いまわしていた。まぁ合わない部分もあったが、すべて使いまわしで作ってしまったがゆえに平坦なメロになったのかもね。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:45",
-                        "file": "source/sounds/work_no_9/9.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 4/4.0.0_Demo.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "01:45",
-                        "file": "source/sounds/work_no_9/9.0.0_Lead E.Piano_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 4/4.0.0_Lead_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v9.1.0 [DEMO]",
+                "ver": "v4.1.0 [DEMO]",
                 "ver_comment": "DEMO1 of the full version. 2番では少しメロが1番と違ったりする。\nコード進行は、相変わらずの使いまわし。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "03:10",
-                        "file": "source/sounds/work_no_9/9.1.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 4/4.1.0_Demo.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "03:10",
-                        "file": "source/sounds/work_no_9/9.1.0_Lead E.Piano_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 4/4.1.0_Lead_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v9.4.11",
+                "ver": "v4.4.11",
                 "ver_comment": "このバージョンで、ピアノの伴奏が9割くらい完成し、コード進行にも手が加えられた。ただ、ミキシングを知らないが故、すごくモワっとしている。正直聞くに耐えない。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "03:11",
-                        "file": "source/sounds/work_no_9/9.4.11.m4a"
+                        "file": "source/sounds/Work No. 4/4.4.11.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "03:11",
-                        "file": "source/sounds/work_no_9/9.4.11_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 4/4.4.11_Lead.m4a"
                     },
                     {
                         "name": "Backing Track",
                         "time": "03:11",
-                        "file": "source/sounds/work_no_9/9.4.11_Backing Track.m4a"
+                        "file": "source/sounds/Work No. 4/4.4.11_Inst.m4a"
                     }
                 ]
             },
             {
-                "ver": "v9.5.0",
+                "ver": "v4.5.0",
                 "ver_comment": "これまでは、いきなりアウトロに行く不自然さがあったがここでようやくアーメン終止？を入れてアウトロへ繋げた。\nそれと、サビでクロマチック進行(dim系)をかなり取り入れた。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.0.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.0.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.0_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.0_Lead.m4a"
                     },
                     {
                         "name": "Backing Track",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.0_Backing Track.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.0_Inst.m4a"
                     }
                 ]
             },
             {
-                "ver": "v9.5.7",
+                "ver": "v4.5.7",
                 "ver_comment": "ようやくまともにミキシングをした。これまでのバージョンと比べると、尖っていて耳がキンキンするピアノがマイルドになった。\nやっぱり、アーメン終止は気に食わないのでsus4とadd9でなんとか誤魔化した。これでいいのかな？\nサビのクロマチック進行はキモすぎたので消し、一部augとdimを入れた。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.7.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.7.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.7_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.7_Lead.m4a"
                     },
                     {
                         "name": "Backing Track",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.7_Backing Track.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.7_Inst.m4a"
                     }
                 ]
             },
             {
-                "ver": "v9.5.8",
+                "ver": "v4.5.8",
                 "ver_comment": "9.5.7との違いは、ボーカルの声質と、一部のフレーズの歌い方を変更した。\nようやくミキシングの必要性が分かった気がする。今ままでCompressorすら知らなかったし。。。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.5.8.m4a"
+                        "file": "source/sounds/Work No. 4/4.5.8.m4a"
                     }
                 ]
             },
             {
-                "ver": "v9.6.0",
+                "ver": "v4.6.0",
                 "ver_comment": "最終バージョン。\nラスサビからアウトロに入るときに余韻を持たせたかったので、1拍分長くした。\nラスサビの2回繰り返すフレーズのコード進行を\nⅣ→Ⅳadd9/Ⅴ→Ⅳadd9→Ⅴ→Ⅰから、\nⅣ→Ⅴsus4→Ⅵ→Ⅲ7→Ⅳadd9→Ⅴ→Ⅰ\nのように一度Aマイナーキーへ焦らしてCに着地させた。最近Ⅲ7がかなり気に入ってる。Ⅴsus4じゃなくてⅤ7(omit 3)でもよかったかも。Ⅴ7って3度が邪魔な気がする。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.6.0.m4a"
+                        "file": "source/sounds/Work No. 4/4.6.0.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.6.0_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 4/4.6.0_Lead.m4a"
                     },
                     {
                         "name": "Backing Track",
                         "time": "03:19",
-                        "file": "source/sounds/work_no_9/9.6.0_Backing Track.m4a"
+                        "file": "source/sounds/Work No. 4/4.6.0_Inst.m4a"
                     }
                 ]
             }
@@ -355,110 +497,110 @@
     },
     {
         "id": "project-03",
-        "title": "Work No. 6",
+        "title": "Work No. 3",
         "date": "2026/03/30",
         "status": "complete",
         "project_comment": "なにか歌詞のある曲を作りたいと思って始めた。歌詞は本当に適当でそれっぽい言葉を選んだだけ。AメロやBメロにつなげるのが下手すぎて意味がわからない曲になっている。",
         "versions": [
             {
-                "ver": "v6.1.0 [DEMO]",
+                "ver": "v3.1.0 [DEMO]",
                 "ver_comment": "ピアノで弾いていたら良さげな進行を思いついた。でもこの進行はすぐ没になった。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "00:33",
-                        "file": "source/sounds/work_no_6/6.1.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 3/3.1.0_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v6.3.0 [DEMO]",
+                "ver": "v3.3.0 [DEMO]",
                 "ver_comment": "とりあえず、それっぽい歌詞を入れた。ドラムの音がちゃっちい。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:08",
-                        "file": "source/sounds/work_no_6/6.3.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 3/3.3.0_Demo.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "01:08",
-                        "file": "source/sounds/work_no_6/6.3.0_Lead E.Piano_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 3/3.3.0_Lead_Demo.m4a"
                     }
                 ]
             },
             {
-                "ver": "v6.4.0",
+                "ver": "v3.4.0",
                 "ver_comment": "前バージョンから少し拡張\nあと、ベースを追加。\nアウトロで電話がプツリと切れる演出と、多少のピアノを追加",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:28",
-                        "file": "source/sounds/work_no_6/6.4.0.m4a"
+                        "file": "source/sounds/Work No. 3/3.4.0.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "01:28",
-                        "file": "source/sounds/work_no_6/6.4.0_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 3/3.4.0_Lead.m4a"
                     }
                 ]
             },
             {
-                "ver": "v6.5.0",
+                "ver": "v3.5.0",
                 "ver_comment": "前バージョンと何が変わったのか忘れた。。。。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:28",
-                        "file": "source/sounds/work_no_6/6.5.0.m4a"
+                        "file": "source/sounds/Work No. 3/3.5.0.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "01:28",
-                        "file": "source/sounds/work_no_6/6.5.0_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 3/3.5.0_Lead.m4a"
                     }
                 ]
             },
             {
-                "ver": "v6.7.5",
+                "ver": "v3.7.5",
                 "ver_comment": "ベースの音色を変更。あとベースラインもリズムを付けて遊んだ\nアウトロの電話ぶつ切り演出は抹消し、何故か短調アルペジオで終わる。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:31",
-                        "file": "source/sounds/work_no_6/6.7.5.m4a"
+                        "file": "source/sounds/Work No. 3/3.7.5.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "01:31",
-                        "file": "source/sounds/work_no_6/6.7.5_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 3/3.7.5_Lead.m4a"
                     }
                 ]
             },
             {
-                "ver": "v6.8.0",
+                "ver": "v3.8.0",
                 "ver_comment": "ピアノと、特にベースラインの主張が激しくなった。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:31",
-                        "file": "source/sounds/work_no_6/6.8.0.m4a"
+                        "file": "source/sounds/Work No. 3/3.8.0.m4a"
                     },
                     {
                         "name": "Lead E.Pno",
                         "time": "01:31",
-                        "file": "source/sounds/work_no_6/6.8.0_Lead E.Piano.m4a"
+                        "file": "source/sounds/Work No. 3/3.8.0_Lead.m4a"
                     }
                 ]
             },
             {
-                "ver": "v6.8.5",
+                "ver": "v3.8.5",
                 "ver_comment": "イントロを創新し、ピアノの主張をかなり抑え、ベースをメインにした。\nイントロとアウトロでホワイトノイズを流した。意味はない。",
                 "types": [
                     {
                         "name": "Original Mix",
                         "time": "01:28",
-                        "file": "source/sounds/work_no_6/6.8.5_final.m4a"
+                        "file": "source/sounds/Work No. 3/3.8.5_final.m4a"
                     }
                 ]
             }
@@ -478,7 +620,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:31",
-                        "file": "source/sounds/work_no_2/2.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 2/2.0.0_Demo.m4a"
                     }
                 ]
             },
@@ -489,7 +631,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:31",
-                        "file": "source/sounds/work_no_2/2.1.0.m4a"
+                        "file": "source/sounds/Work No. 2/2.1.0.m4a"
                     }
                 ]
             },
@@ -500,7 +642,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:29",
-                        "file": "source/sounds/work_no_2/2.6.0.m4a"
+                        "file": "source/sounds/Work No. 2/2.6.0.m4a"
                     }
                 ]
             },
@@ -511,7 +653,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:25",
-                        "file": "source/sounds/work_no_2/2.10.1.m4a"
+                        "file": "source/sounds/Work No. 2/2.10.1.m4a"
                     }
                 ]
             },
@@ -522,7 +664,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:25",
-                        "file": "source/sounds/work_no_2/2.11.0.m4a"
+                        "file": "source/sounds/Work No. 2/2.11.0.m4a"
                     }
                 ]
             }
@@ -542,7 +684,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:32",
-                        "file": "source/sounds/work_no_1/1.0.0_[DEMO].m4a"
+                        "file": "source/sounds/Work No. 1/1.0.0_Demo.m4a"
                     }
                 ]
             },
@@ -553,7 +695,7 @@
                     {
                         "name": "Original Mix",
                         "time": "00:32",
-                        "file": "source/sounds/work_no_1/1.2.0_final.m4a"
+                        "file": "source/sounds/Work No. 1/1.2.0_final.m4a"
                     }
                 ]
             }
